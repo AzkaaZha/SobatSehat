@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-      <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo sobat sehat landscape.png" alt="logo" /></a>
+      <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('admin/assets/images/logo sobat sehat landscape.png') }}" alt="logo" /></a>
       <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -90,3 +90,5 @@
       </li>
     </ul>
   </nav>
+
+  <div class="main-panel">
