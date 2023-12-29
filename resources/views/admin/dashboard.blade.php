@@ -13,7 +13,7 @@
           <div class="card-body" style="background-image: url:">
               <div>
                   <h1 class="card-title">WELCOME TO OUR DASHBOARD</h1>
-              <h4>C-MART UMKM PRODUCT</h4>
+                <h4>C-MART UMKM PRODUCT</h4>
               </div>
               <br>
           </div>

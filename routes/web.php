@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DaftarEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,10 @@ use App\Http\Controllers\DashboardController;
 
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+
+// Daftar Event
+Route::get('/event', 
+[DaftarEventController::class, 'index']);
 
 
