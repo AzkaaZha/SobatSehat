@@ -1,0 +1,11 @@
+.custom-has-slash{
+    /* background: red; */
+    position: relative;
+}
+.custom-has-slash::before{
+    content: "/";
+    position: absolute;
+    /* top: 10px; */
+    left: -5px;
+    font-weight: normal;
+}

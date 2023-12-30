@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}" />
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
+    
+    <!-- custom style -->
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}" />
   </head>
   <body>
     <div class="container-scroller">
