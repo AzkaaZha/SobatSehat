@@ -1,11 +1,20 @@
-.custom-has-slash{
+.custom-has-slash {
     /* background: red; */
     position: relative;
 }
-.custom-has-slash::before{
+
+.custom-has-slash::before {
     content: "/";
     position: absolute;
     /* top: 10px; */
     left: -5px;
     font-weight: normal;
+}
+
+.fc-gradient {
+
+    background: linear-gradient(to bottom, #D2DBF8, #530986);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
 }
