@@ -20,7 +20,20 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 
 // Daftar Event
-Route::get('/event', 
+Route::get('/event',
 [DaftarEventController::class, 'index']);
 
+Route::get('/event/CreateEvent',
+[DaftarEventController::class, 'create']);
 
+Route::post('/event/store',
+[DaftarEventController::class, 'store']);
+
+Route::get('/event/EditEvent/{id}',
+[DaftarEventController::class, 'edit']);
+
+Route::put('/event/update/{id}',
+[DaftarEventController::class, 'update']);
+
+Route::delete('/event/destroy/{id}',
+[DaftarEventController::class, 'destroy']);

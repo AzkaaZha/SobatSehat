@@ -17,45 +17,40 @@
                     </script>
                     @endif
                     <div>
-                    <h4 class="card-title">Daftar Produk</h4>
-                    <a class="btn btn-info btn-lg btn-block" href="{{url('produk/createproduk')}}"><i class="mdi mdi-plus"></i>Tambah Produk</a>
+                        <h4 class="card-title">Daftar Event</h4>
+                        <a class="btn btn-primary" href="{{url('produk/createproduk')}}">Tambah Event <i class="mdi mdi-plus-box"></i></a>
                     </div>
                     <br>
                     <div class="table-responsive">
-                        <table class="table table-bordered text-center">
+                        <table class="table table-striped text-center">
                             <thead>
                             <tr>
                                 <th> No </th>
                                 <th> Nama Event</th>
-                                <th> Lokasi</th>
                                 <th> Tanggal Pelaksanaan</th>
-                                <th> Harga Jual </th>
-                                <th> Jenis Produk </th>
+                                <th> Lokasi</th>
                                 <th> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($products as $produk) --}}
-                                <tr class="table-responsive">
-                                    {{-- <td> {{ $loop->iteration }} </td> --}}
-                                    {{-- <td> {{ $produk->nama }} </td>
-                                    <td> {{ $produk->stok }} </td>
-                                    <td> {{ 'Rp '. number_format($produk->harga_beli, 0, ',', '.') }} </td>
-                                    <td> {{ 'Rp '. number_format($produk->harga_jual, 0, ',', '.') }} </td>
-                                    <td> {{ $produk->jenis_produk_id }} </td>
-                                    <td> 
-                                        <a class="btn btn-primary btn-sm" href="{{ url('produk/showproduk', $produk->id) }}">View</a>
-                                        @if (Auth::user()->role == 'admin')
-                                        <a class="btn btn-warning btn-sm" href="{{ url('produk/editproduk', $produk->id) }}">Edit</a>
-                                        <form class="d-inline" action="{{ url('produk/destroy', $produk->id) }}" method="post">
-                                            
-                                        @csrf
-                                        @method('delete')
-                                        <button  class="btn btn-danger btn-sm" type="submit" onclick="return confirmDelete(event)">Delete</button>
-                                        @endif
-                                        </form>
-                                </tr> --}}
-                            {{-- @endforeach --}}
+                                @foreach ($events as $event)
+                                    <tr class="">
+                                        <td> {{ $loop->iteration }} </td>
+                                        <td> {{ $event->nama_event }} </td>
+                                        <td> {{ $event->tanggal }} </td>
+                                        <td> {{ $event->id_location }} </td>
+                                        <td>
+                                            {{-- @if (Auth::user()->role == 'admin') --}}
+                                            <a class="btn btn-warning btn-sm" href="{{ url('event/editevent', $event->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
+                                            <form class="d-inline" action="{{ url('event/destroy', $event->id) }}" method="post">
+
+                                            @csrf
+                                            @method('delete')
+                                            <button  class="btn btn-danger btn-sm" type="submit" onclick="return confirmDelete(event)">Delete <i class="mdi mdi-delete"></i></button>
+                                            {{-- @endif --}}
+                                            </form>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
