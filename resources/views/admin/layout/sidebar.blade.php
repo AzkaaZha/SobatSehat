@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}" />
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
-    
+
     <!-- custom style -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}" />
   </head>
@@ -35,11 +35,10 @@
                   <span class="font-weight-medium mb-2">Masayid Durian</span>
                   <span class="font-weight-normal">Admin</span>
                 </div>
-                <span class="badge badge-danger text-white ml-3 rounded">3</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{url('/dashboard')}}">
                 <i class="mdi mdi-home menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -75,4 +74,4 @@
       </nav>
 
 
-  
+
