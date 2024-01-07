@@ -33,7 +33,7 @@
                 </div>
                 <div class="nav-profile-text d-flex flex-column pr-3">
                   <span class="font-weight-medium mb-2">Masayid Durian</span>
-                  <span class="font-weight-normal">Admin</span>
+                  <span class="font-weight-normal">{{ Auth::user()->role }}</span>
                 </div>
               </a>
             </li>
@@ -61,14 +61,20 @@
                 <span class="menu-title">Daftar User</span>
               </a>
             </li>
-            <li class="nav-item sidebar-actions">
-              <div class="nav-link">
-                <div class="mt-4">
-                  <ul class="mt-4 pl-0">
-                    <li>Sign Out</li>
-                  </ul>
-                </div>
-              </div>
+            @if(Auth::user()->role == 'admin')
+            <li class="nav-item">
+              <a class="nav-link" href="pages/forms/basic_elements.html">
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                <span class="menu-title">Daftar Berita</span>
+              </a>
+            </li>
+            @endif 
+            <br><br><br>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/logout')}}">
+                <i class="mdi mdi-door-open menu-icon"></i>
+                <span class="menu-title">Logout</span>
+              </a>
             </li>
           </ul>
       </nav>
