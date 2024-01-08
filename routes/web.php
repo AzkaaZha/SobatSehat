@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DaftarEventController;
+use App\Http\Controllers\DaftarLokasiController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -41,6 +42,19 @@ Route::middleware(['auth'])->group(function(){
     Route::put('/event/update/{id}', [DaftarEventController::class, 'update']);
 
     Route::delete('/event/destroy/{id}', [DaftarEventController::class, 'destroy']);
+
+    // Daftar Lokasi
+    Route::get('/location', [DaftarLokasiController::class, 'index']);
+
+    Route::get('/location/CreateLokasi', [DaftarLokasiController::class, 'create']);
+
+    Route::post('/location/store', [DaftarLokasiController::class, 'store']);
+
+    Route::get('/location/EditLokasi/{id}', [DaftarLokasiController::class, 'edit']);
+
+    Route::put('/location/update/{id}', [DaftarLokasiController::class, 'update']);
+
+    Route::delete('/location/destroy/{id}', [DaftarLokasiController::class, 'destroy']);
 });
 
 Route::get('/home', function () { return redirect('/dashboard');
