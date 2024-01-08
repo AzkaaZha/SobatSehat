@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style2.css') }}" />
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
 
     <!-- custom style -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}" />
+
   </head>
   <body>
     <div class="container-scroller">
@@ -50,7 +52,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/icons/mdi.html">
+              <a class="nav-link" href="{{url('/location')}}">
                 <i class="mdi mdi-contacts menu-icon"></i>
                 <span class="menu-title">Daftar Lokasi</span>
               </a>
@@ -68,7 +70,7 @@
                 <span class="menu-title">Daftar Berita</span>
               </a>
             </li>
-            @endif 
+            @endif
             <br><br><br>
             <li class="nav-item">
               <a class="nav-link" href="{{url('/logout')}}">

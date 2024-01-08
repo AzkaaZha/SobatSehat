@@ -29,11 +29,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <h5 style="font-weight: bold; color: #530986;">Daftar Acara</h5>
-                                            <h6 style="font-size: 0.5rem;">3 Daftar Acara</h6>
+                                            <h5 style="font-weight: bold; color: #530986;">Daftar Event</h5>
+                                            <h6 style="font-size: 0.5rem;">3 Daftar Event</h6>
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="" class="btn text-white" style="background-color: #530986; border-radius: 0.2rem;"> <i class="mdi mdi-plus text-white" style="font-weight: bold;"></i></a>
+                                            <a href="{{url('/event')}}" class="btn text-white" style="background-color: #530986; border-radius: 0.2rem;"> <i class="mdi mdi-plus text-white" style="font-weight: bold;"></i></a>
                                         </div>
                                     </div>
                                 </div>

@@ -17,8 +17,8 @@
                     </script>
                     @endif
                     <div>
-                        <h4 class="card-title">Daftar Event</h4>
-                        <a class="btn btn-primary" href="{{url('/event/CreateEvent')}}">Tambah Event <i class="mdi mdi-plus-box"></i></a>
+                        <h4 class="card-title">Daftar Lokasi</h4>
+                        <a class="btn btn-primary" href="{{url('/location/CreateLocation')}}">Tambah Lokasi <i class="mdi mdi-plus-box"></i></a>
                     </div>
                     <br>
                     <div class="table-responsive">
@@ -26,30 +26,23 @@
                             <thead>
                             <tr>
                                 <th> No </th>
-                                <th> Nama Event</th>
-                                <th> Tanggal Pelaksanaan</th>
-                                <th> Lokasi</th>
+                                <th> Nama Lokasi</th>
                                 <th> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($events as $event)
+                                @foreach ($locations as $location)
                                     <tr class="">
                                         <td> {{ $loop->iteration }} </td>
-                                        <td> {{ $event->nama_event }} </td>
-                                        <td> {{ $event->tanggal }} </td>
-
-                                        @foreach ($locations as $location)
                                         <td> {{ $location->nama_lokasi }} </td>
-                                        @endforeach
                                         <td>
                                             {{-- @if (Auth::user()->role == 'admin') --}}
-                                            <a class="btn btn-warning btn-sm" href="{{ url('event/EditEvent', $event->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
-                                            <form class="d-inline" action="{{ url('event/destroy', $event->id) }}" method="post">
+                                            <a class="btn btn-warning btn-sm" href="{{ url('location/EditLocation', $location->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
+                                            <form class="d-inline" action="{{ url('location/destroy', $location->id) }}" method="post">
 
                                             @csrf
                                             @method('delete')
-                                            <button  class="btn btn-danger btn-sm" type="submit" onclick="return confirmDelete(event)">Delete <i class="mdi mdi-delete"></i></button>
+                                            <button  class="btn btn-danger btn-sm" type="submit" onclick="return confirmDelete(location)">Delete <i class="mdi mdi-delete"></i></button>
                                             {{-- @endif --}}
                                             </form>
                                     </tr>
@@ -64,9 +57,9 @@
 @endsection
 
 <script>
-    function confirmDelete(event) {
+    function confirmDelete(location) {
       if(!confirm("Apakah anda yakin ingin menghapus data tersebut ?")){
-        event.preventDefault()
+        location.preventDefault()
         return false;
       }
     }
