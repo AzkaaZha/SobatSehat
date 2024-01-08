@@ -28,11 +28,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($infologin)) {
             if (Auth::user()->role == 'admin') {
-                return redirect('/dashboard/admin');
-            } elseif (Auth::user()->role == 'kontributor') {
-                return redirect('/dashboard/kontributor');
-            }elseif (Auth::user()->role == 'user') {
-                return redirect('/dashboard/user');
+                return redirect('/dashboard');
+            } else if (Auth::user()->role == 'kontributor') {
+                return redirect('/dashboard');
+            } elseif (Auth::user()->role == 'user') {
+                return redirect('/home');
             }
         } else {
             return redirect('/login')->withErrors('Email atau Password salah')->withInput();
@@ -42,5 +42,9 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
         return Redirect('/login');
+    }
+
+    public function register(){
+        return view('auth.register');
     }
 }

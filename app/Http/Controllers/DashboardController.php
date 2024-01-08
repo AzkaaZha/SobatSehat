@@ -11,20 +11,5 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
-
-    public function kontributor()
-    {
-        echo "Ini halaman kontributor";
-    }
-
-    public function admin()
-    {
-        echo "Ini halaman admin";
-    }
-
-    public function user()
-    {
-        echo "Ini halaman user";
-    }
 }
 

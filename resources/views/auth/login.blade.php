@@ -55,6 +55,7 @@
                   <input type="checkbox" />
                   <div class="control__indicator"></div>
                 </label>
+                <span class="ml-auto"><a href="{{url('/register')}}" class="forgot-pass">Belum Punya Akun ? Daftar</a></span> 
                 <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
               </div>
 

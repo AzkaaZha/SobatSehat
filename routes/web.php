@@ -20,11 +20,10 @@ Route::middleware (['guest'])->group(function(){
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+Route::get('/register', [AuthController::class, 'register']);
+
 Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/dashboard/kontributor', [DashboardController::class, 'kontributor'])->middleware('UserAuth:kontributor');
-    Route::get('/dashboard/admin', [DashboardController::class, 'admin'])->middleware('UserAuth:admin');
-    Route::get('/dashboard/user', [DashboardController::class, 'user'])->middleware('UserAuth:user');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('UserAuth:kontributor,admin');
     Route::get('/logout', [AuthController::class, 'logout']);
 
     Route::get('/dashboard', [DashboardController::class, 'index']);

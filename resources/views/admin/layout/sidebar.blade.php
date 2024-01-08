@@ -27,12 +27,12 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="assets/images/faces/face1.jpg" alt="profile" />
+                  <img src="{{ asset('admin/assets/images/faces/face1.jpg')}}" alt="profile" />
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column pr-3">
-                  <span class="font-weight-medium mb-2">Masayid Durian</span>
+                  <span class="font-weight-medium mb-2">{{ Auth::user()->name }}</span>
                   <span class="font-weight-normal">{{ Auth::user()->role }}</span>
                 </div>
               </a>
