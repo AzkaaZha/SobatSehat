@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Event;
 use App\Models\Location;
 
-class DaftarEventController extends Controller
+class DaftarLokasiController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
         $locations = Location::all();
-        return view('admin.event.daftarevent', compact('events', 'locations'));
+        return view('admin.location.daftarlokasi', compact('locations'));
     }
 
     public function create()
