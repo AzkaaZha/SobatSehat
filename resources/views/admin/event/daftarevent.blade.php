@@ -44,7 +44,7 @@
                                         @endforeach
                                         <td>
                                             {{-- @if (Auth::user()->role == 'admin') --}}
-                                            <a class="btn btn-warning btn-sm" href="{{ url('event/EditEvent', $event->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
+                                            <a class="btn btn-warning" href="{{ url('event/EditEvent', $event->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
                                             <form class="d-inline" action="{{ url('event/destroy', $event->id) }}" method="post">
 
                                             @csrf
