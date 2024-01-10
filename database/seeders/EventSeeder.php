@@ -26,7 +26,7 @@ class EventSeeder extends Seeder
             'tanggal' => '2024-08-03',
             'deskripsi' => 'deskripsi tour de borobudur',
             'gambar' => 'tdb.jpg',
-            'id_location' => 5,
+            'id_location' => 2,
         ]);
 
         Event::create([
@@ -34,7 +34,7 @@ class EventSeeder extends Seeder
             'tanggal' => '2024-12-01',
             'deskripsi' => 'deskripsi senam pagi',
             'gambar' => 'senam_pagi.jpg',
-            'id_location' => 8,
+            'id_location' => 3,
         ]);
 
         Event::create([

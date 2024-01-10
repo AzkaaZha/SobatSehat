@@ -8,21 +8,7 @@ use App\Models\Location;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         $events = Event::all();
@@ -30,5 +16,9 @@ class HomeController extends Controller
         return view('home', compact('events', 'locations'));
     }
 
-    
+    public function show(Event $event)
+    {
+        return view('detailevent', compact('event'));
+    }
+
 }
