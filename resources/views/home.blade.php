@@ -13,7 +13,7 @@
   <!-- Custom Css  -->
   <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
 
-  <title>Sobat Sehat</title>
+  <title>Sobat Sehat 1</title>
 </head>
 
 <body>
