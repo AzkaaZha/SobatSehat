@@ -43,4 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    CONST ROLE_ADMIN = 'admin';
+    CONST ROLE_KONTRIBUTOR = 'kontributor';
+    CONST ROLE_USER = 'user';
 }

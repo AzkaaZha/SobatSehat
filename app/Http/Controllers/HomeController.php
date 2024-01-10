@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
+use App\Models\Location;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $events = Event::all();
+        $locations = Location::all();
+        return view('home', compact('events', 'locations'));
     }
+
+    
 }

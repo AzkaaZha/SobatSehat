@@ -1,6 +1,6 @@
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #fff; }
+  font-family: "Montserrat Alternates", sans-serif;
+  background-color: #D2DBF8; }
 
 p {
   color: #b3b3b3;
@@ -8,7 +8,7 @@ p {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Montserrat Alternates", sans-serif; }
 
 a {
   -webkit-transition: .3s all ease;
@@ -20,6 +20,11 @@ a {
 .content {
   padding: 7rem 0; }
 
+h3 {
+  color: #530986;
+  font-size: 40px;
+  padding-left: 190px;
+}
 h2 {
   font-size: 20px; }
 
@@ -31,32 +36,28 @@ h2 {
     height: 500px; } }
 
 .half .contents, .half .bg {
-  width: 50%; }
+  width: 100%; }
   @media (max-width: 1199.98px) {
     .half .contents, .half .bg {
-      width: 100%; } }
+      width: 100%;     } }
   .half .contents .form-group, .half .bg .form-group {
-    margin-bottom: 0;
-    border: 1px solid #efefef;
-    padding: 15px 15px;
+    margin-top: 10px;
+    margin-bottom: 0; 
+    padding: 2px 15px;
     border-bottom: none; }
-    .half .contents .form-group.first, .half .bg .form-group.first {
-      border-top-left-radius: 7px;
-      border-top-right-radius: 7px; }
-    .half .contents .form-group.last, .half .bg .form-group.last {
-      border-bottom: 1px solid #efefef;
-      border-bottom-left-radius: 7px;
-      border-bottom-right-radius: 7px; }
     .half .contents .form-group label, .half .bg .form-group label {
-      font-size: 12px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 15px;
       display: block;
       margin-bottom: 0;
-      color: #b3b3b3; }
+      color: #530986; }
   .half .contents .form-control, .half .bg .form-control {
     border: none;
-    padding: 0;
+    padding: 10px;
     font-size: 15px;
-    border-radius: 0; }
+    font-weight: 300;
+    border-radius: 10; }
     .half .contents .form-control:active, .half .contents .form-control:focus, .half .bg .form-control:active, .half .bg .form-control:focus {
       outline: none;
       -webkit-box-shadow: none;
@@ -68,11 +69,12 @@ h2 {
 }
 
 .half a {
-  color: #888;
-  text-decoration: underline; }
+  color: #2f0df1;
+}
 
 .half .btn {
-  height: 54px;
+  height: 40px;
+  border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px; }
 
@@ -85,7 +87,7 @@ h2 {
   display: block;
   position: relative;
   padding-left: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 14px; }
   .control .caption {

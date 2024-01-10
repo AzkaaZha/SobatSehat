@@ -2,11 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;    
+use Illuminate\Support\Facades\Auth;  
+use App\Models\User;
+  
 
 class AuthController extends Controller
 {
+    public function register() {
+        return view('auth.register');
+    }
+    
+    public function register_action(Request $request) {
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            'password_confirm' => 'required|same:password',
+        ]);
+
+        $email = $request->email;
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => ($email === 'admin@gmail.com') ? User::ROLE_ADMIN : (($email === 'kontributor@gmail.com') ? User::ROLE_KONTRIBUTOR : User::ROLE_USER),
+            'password' => bcrypt($request->password),
+        ];
+
+        User::create($data);
+
+        return redirect()->route('login')->with('success', 'Register berhasil, silahkan login');
+    }
+
     public function index()
     {
         return view('auth.login');
@@ -39,12 +69,8 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
-        return Redirect('/login');
-    }
-
-    public function register(){
-        return view('auth.register');
+        return redirect('/login')->with('success', 'Logout berhasil');
     }
 }

@@ -2,172 +2,166 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- Custom Css  -->
-  <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
+    <!-- Custom Css  -->
+    <link rel="stylesheet" href="style.css">
 
-  <title>Sobat Sehat</title>
+    <title>Lokasi</title>
 </head>
 
-<body>
 
-  <!-- Navbar Start -->
-  <div class="d-block px-2 py-2 text-center" style="background-color: #530986;">
-  </div>
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
+<!-- Navbar Start -->
+<div class="d-block px-2 py-2 text-center" style="background-color: #530986;">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto" style="font-weight: 700">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Hubungi kami</a>
-          </li>
-          @guest
-          <li class="nav-item">
-            <i></i>
-            <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-              </svg>
-              <span>Login / Daftar</span>
-            </a>
-            </li>
-            @if (Route::has('register'))
-                <li><a href="{{ url('/register') }}">Register</a></li>
-            @endif
-            @else
-            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
+        <a class="navbar-brand" href="#"><img src="assets/logoSS.png" alt="Logo" style="height: 3.6rem;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="{{url('/dashboard')}}">Dashboard</a>
+                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                 </li>
-            @endif
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/event')}}">Events</a>
-            </li>
-          
-            <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/logout')}}">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-disabled" href="{{ url('/home') }}" >
-                    {{ Auth::user()->name }}
-                </a>
-            </li>
-            @endguest
-          
-          
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar End -->
-
-  <!-- Hero Section Start -->
-  <section class="jumbotron d-flex flex-column" style="padding-left: 5rem;">
-    <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah</h1>
-    <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
-      SobatSehat"</p>
-    <form class="d-flex">
-      <input class="me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </section>
-  <div class="d-block px-4 py-2 text-center" style="background-color: #530986; height: 3rem;">
-  </div>
-  <!-- Hero Section End -->
-
-  <!-- About Section Start -->
-  <section class="container pt-5 pb-5">
-    <div class="row">
-        
-            <div class="col-5">
-                <img src="{{ asset('page/assets/foto2.png') }}" alt="foto2" class="card-img">
-            </div>
-            <div class="col-7 d-flex align-items-start flex-column">
-                <h1 class="fw-bold" style="color: #530986;">Apa Itu Sobat Sehat ?</h1>
-                <p class="fs-5">Aplikasi ini dibuat untuk mempermudah dalam mengetahui informasi-informasi terkait seputar acara
-                olahraga rekreasi dan membantu, SobatSehat menjadi aplikasi yang lebih komprehensif dan relevan bagi
-                pengguna/user yang sedang mencari informasi terkait seputar acara olahraga rekreasi, serta mampu meningkatkan
-                aktivitas dalam pencarian informasi yang lebih mudah untuk dijangkau dan dicari.</p>
-                <a href="#" class="fst-italic ms-auto" style="color: #530986;">Baca Selengkapnya</a>
-            </div>
-        
-    </div>
-  </section>
-  <!-- About Section End -->
-
-  <!-- Category Section Start -->
-  <section class="container-fluid pb-5" style="background-color: #D2DBF8;">
-    <div class="container">
-      <div class="d-flex justify-content-between pt-4">
-        <h1 style="color: #530986;" class="fw-bold">Kategori</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
-      </div>
-      <hr style="border: black 1px solid;">
-      <div class="row">
-
-        <!-- Looping start here -->
-        <!-- Card Start -->
-        <div class="col-4 p-3">
-          <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-            style="background-color: white; border-radius: 0.7rem; position: relative; text-align: center;">
-            <img src="{{ asset('page/assets/foto3.png') }}" alt="foto3" style="position: relative; z-index: 1;">
-            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
-              class="text-uppercase text-light fs-3">Fun <br> Run</p>
-          </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lokasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">hubungi kami</a>
+                </li>
+                <li class="nav-item">
+                    <i></i>
+                    <a href="#" class="btn text-light" style="background-color: #530986;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                        </svg>
+                        <span>Login</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <!-- Card End -->
-        <!-- Looping end here -->
-
-      </div>
     </div>
+</nav>
+<!-- Navbar End -->
 
-  </section>
-  <!-- Category Section End -->
+<!-- Hero Section Start -->
+<section class="container pb-lg-5">
+    <div class="row">
+        <div class="col-6 d-flex align-items-center justify-content-center">
+            <h1 class="fw-bold" style="color: #530986;">Pilih Lokasi Ideal dan <br> Temukan Event yang <br> Tepat
+                Untukmu</h1>
+        </div>
 
-  <!-- Event Section Start -->
-  <section class="container-fluid pb-5">
-    <div class="container">
-      <div class="d-flex justify-content-between pt-4">
-        <h1 style="color: #530986;" class="fw-bold">Event</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
-      </div>
-      <hr style="border: black 1px solid;">
-      <div class="row">
-        @foreach ($events as $event)
+        <div class="col-6 d-flex justify-content-center mt-4">
+            <div class="container rounded pt-4 pb-4" style="background-color: #D2DBF8;">
+                <img src="assets/foto5.png" alt="foto2" class="card-img">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</section>
+<!-- Hero Section End -->
+
+<!-- Pilih Location Section Start -->
+<div class="container-fluid pt-5 pb-5" style="background-color: #D2DBF8;">
+    <section class="container">
+        <div class="row">
+
+            <div class="col-4">
+                <p class="fw-bold fs-5 text-center">Pilih Lokasi</p>
+                <img src="assets/foto6.png" alt="foto6" class="w-100 p-4 rounded" style="background-color: white;">
+                <div class="d-flex justify-content-start">
+                    <p class="fs-4 fw-bold" style="text-shadow: 2px 2px slategray">Depok</p>
+                    <div class="d-flex justify-content-center pt-2 ps-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event pt-1" viewBox="0 0 16 16">
+                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                          </svg>
+                        <p class="fs-6 text-center">100+ Event</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <p class="fs-5 text-start fw-bold">Urutkan</p>
+                <div class="input-group mb-3 w-100">
+                    <select class="form-select rounded-3" id="inputGroupSelect01">
+                        <option selected>Populer</option>
+                        <option value="1">Weekly</option>
+                        <option value="2">Monthly</option>
+                        <option value="3">Yearly</option>
+                    </select>
+                </div>
+                <hr style="color: white; border: white 3px solid; background-color: white;">
+                
+                <!-- Looping disini Start -->
+                <!-- Card Lokasi Start -->
+
+                <div class="row rounded pt-3 pb-3 m-lg-3" style="background-color: white;">
+                    <div class="col-4">
+                        <img src="assets/foto7.png" alt="foto7" class="w-100">
+                    </div>
+                    <div class="col-8">
+                        <h1 class="fw-bold text-uppercase">Bandung</h1>
+                        <a href="#" class="btn form-control-sm text-light" style="background-color: #530986;">Pilih Lokasi</a>
+                        <div class="d-flex justify-content-start pt-2 ps-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event pt-1" viewBox="0 0 16 16">
+                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                              </svg>
+                            <p class="fs-6 text-center">100+ Event</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Lokasi End -->
+                <!-- Looping berakhir disini End -->
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Pilih Location Section End -->
+<br>
+<!-- Section Event Start -->
+    <section class="container pt-5 pb-5">
+        <h1 class="text-start fw-bold" style="color: #530986;">Events In Depok</h1>        
+
+        <div class="row">
+
+            <!-- Mulai Looping dari bawah sini  -->
             <!-- Card Start -->
-            <div class="col-4 p-3">
-            <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-                style="background-color: white; border-radius: 0.7rem;">
-                <img src="{{ asset('page/assets/foto4.png') }}" alt="foto3">
-                <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama }}</p>
-                <a href="#" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
+            <div class="col-3 p-4">
+                <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
+                    style="background-color: white; border-radius: 0.7rem;">
+                    <img src="assets/foto4.png" alt="foto3" class="w-100">
+                    <p class="fs-6 fw-bold p-3 pb-1">Jalan Santai Bandung</p>
+                    <a href="#" class="btn text-light shadow-sm rounded form-control-sm" style="background-color: #530986;">Lihat
+                        Detail</a>
+                </div>
             </div>
-            </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
-  <!-- Event Section End -->
+            <!-- Card End -->
+            <!-- Looping Berakhir disini -->
+            
+        </div>
+    </section>
+<!-- Section Event End -->
 
   <!-- Footer Section Start -->
   <div class="container-fluid" style="background-color: #D2DBF8; border-bottom: #530986 4rem solid;">
@@ -175,7 +169,7 @@
       <footer class="row row-cols-5 py-5 border-top">
         <div class="col">
           <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
+            <img src="assets/logoSS.png" alt="Logo" style="height: 2.8rem;">
           </a>
           <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
             web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>
@@ -294,9 +288,13 @@
   </div>
   <!-- Footer Section End -->
 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+
+
+<body>
 
 </body>
 

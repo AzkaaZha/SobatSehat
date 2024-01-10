@@ -1,0 +1,46 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.jumbotron {
+    padding: 2rem 1rem;
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-image: url(./foto1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.jumbotron2 {
+    padding: 2rem 1rem;
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-image: url(./foto8.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.custom-has-slash {
+    /* background: red; */
+    position: relative;
+}
+
+.custom-has-slash::before {
+    content: "/";
+    position: absolute;
+    /* top: 10px; */
+    left: -5px;
+    font-weight: normal;
+}
+
+.nav-item{
+    padding: 10px 20px;
+}
+
+.nav-item:hover{
+    background-color: #8214cc;
+    border-radius: 10px;
+
+}

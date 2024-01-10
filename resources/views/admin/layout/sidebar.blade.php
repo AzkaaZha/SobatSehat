@@ -58,19 +58,19 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="{{url('/user')}}">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Daftar User</span>
               </a>
             </li>
-            @if(Auth::user()->role == 'admin')
+            
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="{{url('/news')}}">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Daftar Berita</span>
               </a>
             </li>
-            @endif
+  
             <br><br><br>
             <li class="nav-item">
               <a class="nav-link" href="{{url('/logout')}}">

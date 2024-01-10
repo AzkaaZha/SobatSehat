@@ -28,8 +28,8 @@
 
       <div class="container">
         <div class="row align-items-center justify-content-center">
-          <div class="col-md-7">
-            <h3>Login</h3>
+          <div class="col-md-10">
+            <h3 style="font-weight:bold">LOGIN</h3>
             @if ($errors->any())
               <div class="alert alert-danger">
                 <ul>
@@ -42,25 +42,22 @@
             <form action="" method="POST">
               @csrf
               <div class="form-group first">
-                <label for="email">Email</label>
-                <input type="email" value="{{ old('email') }}" class="form-control" name="email">
+                <label for="email">Username or Email</label>
+                <input type="email" value="{{ old('email') }}" class="form-control" name="email" >
               </div>
               <div class="form-group last mb-3">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password">
+                <span class="ml-auto"><a href="#" class="forgot-pass">Lupa Password ?</a></span> 
               </div>
-              
+              <div class="col-md-6">
+                <input type="submit" value="Login" class="btn btn-primary">
+              </div>
               <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox" />
-                  <div class="control__indicator"></div>
-                </label>
                 <span class="ml-auto"><a href="{{url('/register')}}" class="forgot-pass">Belum Punya Akun ? Daftar</a></span> 
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
               </div>
-
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
+              <div style="padding-left: 120px;" >
+              </div>
             </form>
           </div>
         </div>
@@ -69,7 +66,7 @@
   </div>
     <script src="{{ asset('auth/assets/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('auth/assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('auth/assets/js/bootstrap.min.js') }}></script>
+    <script src="{{ asset('auth/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('auth/assets/js/main.js') }}"></script>
   </body>
 </html>

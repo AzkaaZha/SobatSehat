@@ -2,180 +2,126 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- Custom Css  -->
-  <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
+    <!-- Custom Css  -->
+    <link rel="stylesheet" href="style.css">
 
-  <title>Sobat Sehat</title>
+    <title>Berita Sobat Sehat</title>
 </head>
 
 <body>
-
-  <!-- Navbar Start -->
-  <div class="d-block px-2 py-2 text-center" style="background-color: #530986;">
-  </div>
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto" style="font-weight: 700">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Hubungi kami</a>
-          </li>
-          @guest
-          <li class="nav-item">
-            <i></i>
-            <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-              </svg>
-              <span>Login / Daftar</span>
-            </a>
-            </li>
-            @if (Route::has('register'))
-                <li><a href="{{ url('/register') }}">Register</a></li>
-            @endif
-            @else
-            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="{{url('/dashboard')}}">Dashboard</a>
-                </li>
-            @endif
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/event')}}">Events</a>
-            </li>
-          
-            <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/logout')}}">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-disabled" href="{{ url('/home') }}" >
-                    {{ Auth::user()->name }}
-                </a>
-            </li>
-            @endguest
-          
-          
-          
-        </ul>
-      </div>
+    <!-- Navbar Start -->
+    <div class="d-block px-2 py-2 text-center" style="background-color: #530986;">
     </div>
-  </nav>
-  <!-- Navbar End -->
-
-  <!-- Hero Section Start -->
-  <section class="jumbotron d-flex flex-column" style="padding-left: 5rem;">
-    <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah</h1>
-    <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
-      SobatSehat"</p>
-    <form class="d-flex">
-      <input class="me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </section>
-  <div class="d-block px-4 py-2 text-center" style="background-color: #530986; height: 3rem;">
-  </div>
-  <!-- Hero Section End -->
-
-  <!-- About Section Start -->
-  <section class="container pt-5 pb-5">
-    <div class="row">
-        
-            <div class="col-5">
-                <img src="{{ asset('page/assets/foto2.png') }}" alt="foto2" class="card-img">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="assets/logoSS.png" alt="Logo" style="height: 3.6rem;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Lokasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">hubungi kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <i></i>
+                        <a href="#" class="btn text-light" style="background-color: #530986;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <span>Login</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-7 d-flex align-items-start flex-column">
-                <h1 class="fw-bold" style="color: #530986;">Apa Itu Sobat Sehat ?</h1>
-                <p class="fs-5">Aplikasi ini dibuat untuk mempermudah dalam mengetahui informasi-informasi terkait seputar acara
-                olahraga rekreasi dan membantu, SobatSehat menjadi aplikasi yang lebih komprehensif dan relevan bagi
-                pengguna/user yang sedang mencari informasi terkait seputar acara olahraga rekreasi, serta mampu meningkatkan
-                aktivitas dalam pencarian informasi yang lebih mudah untuk dijangkau dan dicari.</p>
-                <a href="#" class="fst-italic ms-auto" style="color: #530986;">Baca Selengkapnya</a>
-            </div>
-        
-    </div>
-  </section>
-  <!-- About Section End -->
-
-  <!-- Category Section Start -->
-  <section class="container-fluid pb-5" style="background-color: #D2DBF8;">
-    <div class="container">
-      <div class="d-flex justify-content-between pt-4">
-        <h1 style="color: #530986;" class="fw-bold">Kategori</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
-      </div>
-      <hr style="border: black 1px solid;">
-      <div class="row">
-
-        <!-- Looping start here -->
-        <!-- Card Start -->
-        <div class="col-4 p-3">
-          <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-            style="background-color: white; border-radius: 0.7rem; position: relative; text-align: center;">
-            <img src="{{ asset('page/assets/foto3.png') }}" alt="foto3" style="position: relative; z-index: 1;">
-            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
-              class="text-uppercase text-light fs-3">Fun <br> Run</p>
-          </div>
         </div>
-        <!-- Card End -->
-        <!-- Looping end here -->
+    </nav>
+    <!-- Navbar End -->
 
-      </div>
-    </div>
+    <!-- Breadcumb Start -->
+    <section class="container pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item text-muted"><a href="#" style="text-decoration: none;"
+                        class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                        </svg></a></li>
+                <li class="breadcrumb-item"><a href="#" style="text-decoration: none;" class="text-muted">Pages</a></li>
+                <li class="breadcrumb-item active text-muted" aria-current="page"><span class="fw-bold"> Halaman Berita
+                    </span></li>
+            </ol>
+        </nav>
+    </section>
+    <!-- Breadcumb End -->
 
-  </section>
-  <!-- Category Section End -->
 
-  <!-- Event Section Start -->
-  <section class="container-fluid pb-5">
-    <div class="container">
-      <div class="d-flex justify-content-between pt-4">
-        <h1 style="color: #530986;" class="fw-bold">Event</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
-      </div>
-      <hr style="border: black 1px solid;">
-      <div class="row">
-        @foreach ($events as $event)
-            <!-- Card Start -->
-            <div class="col-4 p-3">
-            <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-                style="background-color: white; border-radius: 0.7rem;">
-                <img src="{{ asset('page/assets/foto4.png') }}" alt="foto3">
-                <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama }}</p>
-                <a href="#" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
+    <!-- Hero Section Start -->
+    <section class="jumbotron2 d-flex flex-column pt-5 pb-5" style="padding-left: 5rem;">
+        <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah
+        </h1>
+        <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
+            SobatSehat"</p>
+        <form class="d-flex">
+            <input class="me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Berita Section Start -->
+    <section class="container pt-5 pb-5">
+
+        <!-- Looping mulai dari sini -->
+        <!-- Card Berita Here Start -->
+        <div class="row">
+
+            <div class="col-4">
+                <img src="assets/foto9.png" alt="foto9" class="w-100">
             </div>
-            </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
-  <!-- Event Section End -->
 
-  <!-- Footer Section Start -->
+            <div class="col-8">
+                <h1 class="fw-bold ">Manfaat Jalan Santai Bersama Keluarga</h1>
+                <p>Sebuah studi terbaru dalam bidang kesehatan dan ilmu perilaku manusia menyoroti manfaat luar biasa dari kegiatan sederhana seperti jalan santai bersama keluarga. Penelitian ini menunjukkan bahwa interaksi keluarga yang positif dan aktivitas fisik ringan dapat memberikan dampak signifikan pada kesejahteraan secara keseluruhan. Menurut Dr. Maria Rodriguez, ahli kesehatan dan peneliti utama dalam studi ini, "Jalan santai bersama keluarga bukan hanya memperkuat ikatan emosional, tetapi juga membawa dampak positif pada aspek kesehatan fisik dan mental."</p>
+            </div>
+
+        </div>
+        <!-- Card Berita End Here -->
+        <!-- Looping Berakhir disini -->
+        
+    </section>
+    <!-- Berita Section End -->
+
+      <!-- Footer Section Start -->
   <div class="container-fluid" style="background-color: #D2DBF8; border-bottom: #530986 4rem solid;">
     <div class="container">
       <footer class="row row-cols-5 py-5 border-top">
         <div class="col">
           <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
+            <img src="assets/logoSS.png" alt="Logo" style="height: 2.8rem;">
           </a>
           <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
             web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>
@@ -294,6 +240,8 @@
   </div>
   <!-- Footer Section End -->
 
+
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
