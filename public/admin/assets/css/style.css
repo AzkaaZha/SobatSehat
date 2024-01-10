@@ -4563,7 +4563,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
+  color: #530986;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -4706,7 +4706,7 @@ input[type="button"].btn-block {
   background-color: transparent;
   border: 0; }
   .dropdown-item:hover, .dropdown-item:focus {
-    color: #16181b;
+    color: #530986;
     text-decoration: none;
     background-color: #f8f9fa; }
   .dropdown-item.active, .dropdown-item:active {
@@ -8811,35 +8811,35 @@ button.bg-dark:focus,
   body {
     font-family: "Roboto", sans-serif;
     background-color: #fff; }
-  
+
   p {
     color: #b3b3b3;
     font-weight: 300; }
-  
+
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Roboto", sans-serif; }
-  
+
   a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease; }
     a:hover {
       text-decoration: none !important; }
-  
+
   .content {
     padding: 7rem 0; }
-  
+
   h2 {
     font-size: 20px; }
-  
+
   .half, .half .container > .row {
     height: 100vh; }
-  
+
   @media (max-width: 991.98px) {
     .half .bg {
       height: 500px; } }
-  
+
   .half .contents, .half .bg {
     width: 50%; }
     @media (max-width: 1199.98px) {
@@ -8871,25 +8871,25 @@ button.bg-dark:focus,
         outline: none;
         -webkit-box-shadow: none;
         box-shadow: none; }
-  
+
   .half .bg {
     background-size: cover;
     background-position: center; }
-  
+
   .half a {
     color: #888;
     text-decoration: underline; }
-  
+
   .half .btn {
     height: 54px;
     padding-left: 30px;
     padding-right: 30px; }
-  
+
   .half .forgot-pass {
     position: relative;
     top: 2px;
     font-size: 14px; }
-  
+
   .control {
     display: block;
     position: relative;
@@ -8901,12 +8901,12 @@ button.bg-dark:focus,
       position: relative;
       top: .2rem;
       color: #888; }
-  
+
   .control input {
     position: absolute;
     z-index: -1;
     opacity: 0; }
-  
+
   .control__indicator {
     position: absolute;
     top: 2px;
@@ -8915,26 +8915,26 @@ button.bg-dark:focus,
     width: 20px;
     background: #e6e6e6;
     border-radius: 4px; }
-  
+
   .control--radio .control__indicator {
     border-radius: 50%; }
-  
+
   .control:hover input ~ .control__indicator,
   .control input:focus ~ .control__indicator {
     background: #ccc; }
-  
+
   .control input:checked ~ .control__indicator {
     background: #007bff; }
-  
+
   .control:hover input:not([disabled]):checked ~ .control__indicator,
   .control input:checked:focus ~ .control__indicator {
     background: #1a88ff; }
-  
+
   .control input:disabled ~ .control__indicator {
     background: #e6e6e6;
     opacity: 0.9;
     pointer-events: none; }
-  
+
   .control__indicator:after {
     font-family: 'icomoon';
     content: '\e5ca';
@@ -8944,11 +8944,11 @@ button.bg-dark:focus,
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease; }
-  
+
   .control input:checked ~ .control__indicator:after {
     display: block;
     color: #fff; }
-  
+
   .control--checkbox .control__indicator:after {
     top: 50%;
     left: 50%;
@@ -8956,14 +8956,14 @@ button.bg-dark:focus,
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-  
+
   .control--checkbox input:disabled ~ .control__indicator:after {
     border-color: #7b7b7b; }
-  
+
   .control--checkbox input:disabled:checked ~ .control__indicator {
     background-color: #7e0cf5;
     opacity: .2; }
-  
+
 .mr-4,
 .mx-4 {
   margin-right: 1.5rem !important; }
@@ -14773,7 +14773,7 @@ dl {
           width: 34px;
           height: 34px;
           border-radius: 50px;
-          background: #3f3f40;
+          background: #530986;
           text-align: center;
           line-height: 2.2; }
     .navbar .navbar-menu-wrapper .navbar-text {
@@ -14829,7 +14829,7 @@ dl {
               width: 34px;
               height: 34px;
               border-radius: 50px;
-              background: #3f3f40;
+              background: #530986;
               text-align: center;
               line-height: 2.2; }
         .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator {
@@ -14935,7 +14935,7 @@ dl {
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .form-control, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .select2-container--default .select2-selection--single, .select2-container--default .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .select2-selection--single, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .select2-search__field, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .typeahead,
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .tt-query,
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .tt-hint {
-            background: #3f3f40;
+            background: #530986;
             border: 0;
             color: #ffffff;
             padding: 0.5rem 1rem;
@@ -14949,7 +14949,7 @@ dl {
               border-top-right-radius: 50px;
               border-bottom-right-radius: 50px; }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .input-group-text {
-            background: #3f3f40;
+            background: #530986;
             border: 0;
             color: #ffffff;
             padding: 0.5rem 1rem; }

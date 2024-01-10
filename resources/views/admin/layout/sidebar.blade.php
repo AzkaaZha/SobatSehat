@@ -22,8 +22,8 @@
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('admin/assets/images/logo2.png') }}" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="{{ asset('admin/assets/images/logo.png') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="{{url('/dashboard')}}"><img src="{{ asset('admin/assets/images/logo2.png') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="{{url('/dashboard')}}"><img src="{{ asset('admin/assets/images/logo.png') }}" alt="logo" /></a>
         </div>
           <ul class="nav">
             <li class="nav-item nav-profile">

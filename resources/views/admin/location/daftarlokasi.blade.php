@@ -37,7 +37,7 @@
                                         <td> {{ $location->nama_lokasi }} </td>
                                         <td>
                                             {{-- @if (Auth::user()->role == 'admin') --}}
-                                            <a class="btn btn-warning btn-sm" href="{{ url('location/EditLokasi', $location->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
+                                            <a class="btn btn-warning" href="{{ url('location/EditLokasi', $location->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
                                             <form class="d-inline" action="{{ url('location/destroy', $location->id) }}" method="post">
 
                                             @csrf
