@@ -33,15 +33,15 @@ class EventSeeder extends Seeder
             'nama_event' => 'Senam Pagi',
             'tanggal' => '2024-12-01',
             'deskripsi' => 'deskripsi senam pagi',
-            'gambar' => 'senam_pagi.jpg',
+            'gambar' => 'https://i.top4top.io/p_2931w1voq1.jpeg',
             'id_location' => 8,
         ]);
 
         Event::create([
-            'nama_event' => 'Morning Fitness Fun',
+            'nama_event' => 'Senam Aerobik',
             'tanggal' => '2024-12-29',
-            'deskripsi' => 'deskripsi morning fitness fun',
-            'gambar' => 'mff.jpg',
+            'deskripsi' => 'deskripsi senam aerobik',
+            'gambar' => 'https://bit.ly/3tDmqiF-senam-aerobik',
             'id_location' => 3,
         ]);
     }
