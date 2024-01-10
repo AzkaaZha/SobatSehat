@@ -17,5 +17,25 @@ class LocationSeeder extends Seeder
             'nama_lokasi' => 'Bandung',
             'gambar' => 'bandung.jpg',
         ]);
+
+        Location::create([
+            'nama_lokasi' => 'Jakarta',
+            'gambar' => 'jakarta.jpg',
+        ]);
+
+        Location::create([
+            'nama_lokasi' => 'Surabaya',
+            'gambar' => 'surabaya.jpg',
+        ]);
+
+        Location::create([
+            'nama_lokasi' => 'Yogyakarta',
+            'gambar' => 'yogyakarta.jpg',
+        ]);
+
+        Location::create([
+            'nama_lokasi' => 'Surakarta',
+            'gambar' => 'surakarta.jpg',
+        ]);
     }
 }
