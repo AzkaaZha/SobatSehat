@@ -8,6 +8,7 @@ use App\Models\Location;
 
 class HomeController extends Controller
 {
+
    
     public function index()
     {
@@ -16,5 +17,9 @@ class HomeController extends Controller
         return view('home', compact('events', 'locations'));
     }
 
-    
+    public function show(Event $event)
+    {
+        return view('detailevent', compact('event'));
+    }
+
 }

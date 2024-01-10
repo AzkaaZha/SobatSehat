@@ -26,15 +26,20 @@ class EventSeeder extends Seeder
             'tanggal' => '2024-08-03',
             'deskripsi' => 'deskripsi tour de borobudur',
             'gambar' => 'tdb.jpg',
-            'id_location' => 5,
+            'id_location' => 2,
         ]);
 
         Event::create([
             'nama_event' => 'Senam Pagi',
             'tanggal' => '2024-12-01',
             'deskripsi' => 'deskripsi senam pagi',
+<<<<<<< HEAD
             'gambar' => 'https://i.top4top.io/p_2931w1voq1.jpeg',
             'id_location' => 8,
+=======
+            'gambar' => 'senam_pagi.jpg',
+            'id_location' => 3,
+>>>>>>> 82d3a81c2c8437d5d37e98209058926b0bbae00d
         ]);
 
         Event::create([

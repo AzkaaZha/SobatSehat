@@ -4,25 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Event;
 use App\Models\Location;
 
-class EventController extends Controller
+class LokasiController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
         $locations = Location::all();
-        return view('event', compact('events', 'locations'));
-    }
-
-    public function show(string $id)
-    {
-        $events = Event::all();
-        $locations = Location::all();
-        return view('detailevent', [
-            'events' => $events
-        ]);
+        return view('lokasi', compact('locations'));
     }
 
 
