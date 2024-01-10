@@ -34,8 +34,8 @@
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Hubungi kami</a>
-          </li>
+            <a class="nav-link" href="{{url('/berita')}}">Berita</a>
+        </li>
           @guest
           <li class="nav-item">
             <i></i>
@@ -53,28 +53,27 @@
             @else
             @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="{{url('/dashboard')}}">Dashboard</a>
+                    <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
                 </li>
             @endif
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/event')}}">Events</a>
-            </li>
-          
-            <li class="nav-item">
-                <a class="nav-link disabled" href="{{url('/logout')}}">Logout</a>
+                <a class="nav-link " href="{{url('/events')}}">Events</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link-disabled" href="{{ url('/home') }}" >
-                    {{ Auth::user()->name }}
+                <a class="nav-link" href="{{ url('/home') }}" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg> {{ Auth::user()->name }}
                 </a>
             </li>
             @endguest
-          
-          
-          
+
+
+
         </ul>
       </div>
     </div>
@@ -86,10 +85,6 @@
     <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah</h1>
     <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
       SobatSehat"</p>
-    <form class="d-flex">
-      <input class="me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
   </section>
   <div class="d-block px-4 py-2 text-center" style="background-color: #530986; height: 3rem;">
   </div>
@@ -98,7 +93,7 @@
   <!-- About Section Start -->
   <section class="container pt-5 pb-5">
     <div class="row">
-        
+
             <div class="col-5">
                 <img src="{{ asset('page/assets/foto2.png') }}" alt="foto2" class="card-img">
             </div>
@@ -110,7 +105,7 @@
                 aktivitas dalam pencarian informasi yang lebih mudah untuk dijangkau dan dicari.</p>
                 <a href="#" class="fst-italic ms-auto" style="color: #530986;">Baca Selengkapnya</a>
             </div>
-        
+
     </div>
   </section>
   <!-- About Section End -->
@@ -119,25 +114,26 @@
   <section class="container-fluid pb-5" style="background-color: #D2DBF8;">
     <div class="container">
       <div class="d-flex justify-content-between pt-4">
-        <h1 style="color: #530986;" class="fw-bold">Kategori</h1>
+        <h1 style="color: #530986;" class="fw-bold">Lokasi</h1>
         <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
       </div>
       <hr style="border: black 1px solid;">
       <div class="row">
+        @foreach ($locations as $location)
 
         <!-- Looping start here -->
         <!-- Card Start -->
         <div class="col-4 p-3">
           <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
             style="background-color: white; border-radius: 0.7rem; position: relative; text-align: center;">
-            <img src="{{ asset('page/assets/foto3.png') }}" alt="foto3" style="position: relative; z-index: 1;">
+            <img src="{{ $location->gambar }}" alt="foto3" style="position: relative; z-index: 1;">
             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
-              class="text-uppercase text-light fs-3">Fun <br> Run</p>
+              class="text-uppercase text-light fs-3">{{ $location->nama_lokasi }}</p>
           </div>
         </div>
         <!-- Card End -->
         <!-- Looping end here -->
-
+        @endforeach
       </div>
     </div>
 
@@ -158,9 +154,9 @@
             <div class="col-4 p-3">
             <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
                 style="background-color: white; border-radius: 0.7rem;">
-                <img src="{{ asset('page/assets/foto4.png') }}" alt="foto3">
+                <img src={{ $event->gambar }} alt="foto">
                 <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama }}</p>
-                <a href="#" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
+                <a href="{{ url('/detailevent') }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
             </div>
             </div>
         @endforeach
@@ -171,8 +167,8 @@
 
   <!-- Footer Section Start -->
   <div class="container-fluid" style="background-color: #D2DBF8; border-bottom: #530986 4rem solid;">
-    <div class="container">
-      <footer class="row row-cols-5 py-5 border-top">
+    <div class="container" id="footer">
+      <footer class="row row-cols-5 py-5 border-top" >
         <div class="col">
           <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
             <img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">

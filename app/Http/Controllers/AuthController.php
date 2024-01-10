@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;  
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-  
+
 
 class AuthController extends Controller
 {
     public function register() {
         return view('auth.register');
     }
-    
+
     public function register_action(Request $request) {
         $request->validate([
             'name' => 'required|min:3|max:255',
@@ -58,11 +58,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($infologin)) {
             if (Auth::user()->role == 'admin') {
-                return redirect('/dashboard');
+                return redirect('/');
             } else if (Auth::user()->role == 'kontributor') {
-                return redirect('/dashboard');
+                return redirect('/');
             } elseif (Auth::user()->role == 'user') {
-                return redirect('/home');
+                return redirect('/');
             }
         } else {
             return redirect('/login')->withErrors('Email atau Password salah')->withInput();
@@ -71,6 +71,6 @@ class AuthController extends Controller
 
     public function logout(Request $request){
         Auth::logout();
-        return redirect('/login')->with('success', 'Logout berhasil');
+        return view('auth.login')->with('success', 'Logout berhasil');
     }
 }

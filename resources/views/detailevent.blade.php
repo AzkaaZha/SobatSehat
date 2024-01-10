@@ -11,7 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom Css  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('page/style.css') }}">
     <title>Detail Event</title>
 </head>
 
@@ -20,41 +20,59 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/logoSS.png" alt="Logo" style="height: 3.6rem;"></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset ('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto" style="font-weight: 700">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('/berita')}}">Berita</a>
+                </li>
+                  @guest
+                  <li class="nav-item">
+                    <i></i>
+                    <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                      </svg>
+                      <span>Login / Daftar</span>
+                    </a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    @endif
+                    @else
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                        <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
+                        <a class="nav-link " href="{{url('/events')}}">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Lokasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">hubungi kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <i></i>
-                        <a href="#" class="btn text-light" style="background-color: #530986;">
+                        <a class="nav-link" href="{{ url('/home') }}" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                            </svg>
-                            <span>Login</span>
+                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                      </svg> {{ Auth::user()->name }}
                         </a>
                     </li>
+                    @endguest
+
+
+
                 </ul>
-            </div>
-        </div>
+              </div>
     </nav>
     <!-- Navbar End -->
 
@@ -124,7 +142,7 @@
     <span class="sr-only">Next</span>
   </button>
 </div>
-            
+
 
         </div>
     </section>
@@ -142,11 +160,11 @@
                     web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>
                   <p class="text-muted fw-bold">© Sobat Sehat</p>
                 </div>
-        
+
                 <div class="col">
                   <h5 style="color: #3A86FF;" class="fs-6 fw-bold pt-2 pb-4">Get In Touch</h5>
                   <ul class="nav flex-column">
-        
+
                     <li class="nav-item mb-2">
                       <div class="col d-flex align-items-center">
                         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -161,7 +179,7 @@
                           Barat 16451</span>
                       </div>
                     </li>
-        
+
                     <li class="nav-item mb-2">
                       <div class="col d-flex align-items-center">
                         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -174,7 +192,7 @@
                         <span class="text-muted fs-6">sobatsehat@gmail.com</span>
                       </div>
                     </li>
-        
+
                     <li class="nav-item mb-2">
                       <div class="col d-flex align-items-center">
                         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -187,10 +205,10 @@
                         <span class="text-muted fs-6">+62 857 888 888 </span>
                       </div>
                     </li>
-        
+
                   </ul>
                 </div>
-        
+
                 <!-- Service Footer Start -->
                 <div class="col">
                   <h5 class="fs-6 fw-bold pt-2 pb-4" style="color: #3A86FF;">Service</h5>
@@ -204,7 +222,7 @@
                   </ul>
                 </div>
                 <!-- Service Footer End -->
-        
+
                 <!-- Company Footer Start -->
                 <div class="col">
                   <h5 class="fs-6 fw-bold pt-2 pb-4" style="color: #3A86FF;">Company</h5>
@@ -218,7 +236,7 @@
                   </ul>
                 </div>
                 <!-- Company Footer End -->
-        
+
                 <!-- Social Media Footer -->
                 <div class="col">
                   <div class="d-flex justify-content-center">
@@ -244,7 +262,7 @@
                       </svg>
                     </a>
                   </div>
-        
+
                   <p class="fs-6 text-muted">Ikuti kami di media sosial untuk informasi menarik, tips kesehatan, dan keseruan
                     bersama Sobat Sehat. Jangan lewatkan setiap momen menyegarkan kehidupan Anda. 💚 #SobatSehat #GerakBersama
                   </p>
@@ -254,11 +272,11 @@
             </div>
           </div>
         <!-- Footer Section End -->
-    
 
 
 
-    
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
   crossorigin="anonymous"></script>

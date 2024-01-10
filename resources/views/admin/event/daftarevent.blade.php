@@ -38,10 +38,8 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td> {{ $event->nama_event }} </td>
                                         <td> {{ $event->tanggal }} </td>
+                                        <td> {{ $event->lokasi_id }} </td>
 
-                                        @foreach ($locations as $location)
-                                        <td> {{ $location->nama_lokasi }} </td>
-                                        @endforeach
                                         <td>
                                             {{-- @if (Auth::user()->role == 'admin') --}}
                                             <a class="btn btn-warning" href="{{ url('event/EditEvent', $event->id) }}">Edit <i class="mdi mdi-pencil-box-outline"></i></a>
