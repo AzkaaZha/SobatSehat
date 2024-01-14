@@ -1,6 +1,11 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+h1, h2{
+    font-size: 25px;
+}
+
 .jumbotron {
     padding: 2rem 1rem;
     content: '';
@@ -19,6 +24,23 @@ body {
     background-image: url(./foto8.png);
     background-size: cover;
     background-position: center;
+}
+
+.image-wrapper img {
+    width: 100%;  /* Mengatur lebar menjadi 100% */
+    height: 200px;  /* Menetapkan ketinggian yang sama untuk semua gambar */
+    object-fit: cover;  /* Memastikan gambar memenuhi dimensi tanpa memanjang atau memendekkannya */
+    display: block;
+    margin: 0 auto;  /* Mengatur gambar ke tengah */
+}
+
+.tittle p {
+    font-weight: bold;
+    color: #42056b;
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
 }
 
 
@@ -43,4 +65,90 @@ body {
     background-color: #8214cc;
     border-radius: 10px;
 
+}
+
+//* Gaya untuk input group */
+.input-group {
+    width: 100%;
+}
+
+/* Gaya untuk baris input group */
+.input-group-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Tengahkan vertikal */
+    margin-bottom: 10px;
+}
+
+/* Gaya untuk input text */
+.input-group input[type="text"] {
+    width: 500px;
+    padding: 10px 15px;
+    border: 1px solid #530986;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Efek hover pada input text */
+.input-group input[type="text"]:hover {
+    border-color: #7c0f8e;
+}
+
+/* Efek focus pada input text */
+.input-group input[type="text"]:focus {
+    border-color: #9d30b5;
+    box-shadow: 0 0 5px rgba(157, 48, 181, 0.5);
+}
+
+/* Gaya untuk tombol Cari */
+.input-group button[type="submit"] {
+    width: 100px; /* Ubah lebar tombol sesuai kebutuhan */
+    margin-left: 10px; /* Berikan margin antara input dan tombol */
+    padding: 10px 15px;
+    background-color: #530986;
+    color: #ffffff;
+    border: 1px solid #530986;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efek hover pada tombol Cari */
+.input-group button[type="submit"]:hover {
+    background-color: #7c0f8e;
+    border-color: #7c0f8e;
+}
+
+/* Efek focus pada tombol Cari */
+.input-group button[type="submit"]:focus {
+    background-color: #9d30b5;
+    border-color: #9d30b5;
+}
+
+/* Gaya untuk tombol Lihat Semua Lokasi */
+.input-group a.btn-primary {
+    width: 130px; /* Ubah lebar tombol sesuai kebutuhan */
+    margin-left: 10px; /* Berikan margin antara tombol dan input */
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #530986;
+    color: #ffffff;
+    border: 1px solid #530986;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efek hover pada tombol Lihat Semua Lokasi */
+.input-group a.btn-primary:hover {
+    background-color: #7c0f8e;
+    border-color: #7c0f8e;
+}
+
+/* Efek focus pada tombol Lihat Semua Lokasi */
+.input-group a.btn-primary:focus {
+    background-color: #9d30b5;
+    border-color: #9d30b5;
 }

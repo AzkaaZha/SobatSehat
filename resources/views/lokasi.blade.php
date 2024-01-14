@@ -102,54 +102,47 @@
 <div class="container-fluid pt-5 pb-5" style="background-color: #D2DBF8;">
     <section class="container">
         <div class="row">
+            <div class="col-12">
+                <p class="fs-5 text-start fw-bold">Pilih Kota mu dan Temukan Event nya !!!</p>
+                <div class="input-group">
+                  <form action="{{ url('/lokasi') }}" method="GET">
+                      <div class="input-group-row">
+                          <input type="text" name="search" placeholder="Cari Lokasi">
+                          <button type="submit"><i class="fas fa-search"></i> Cari</button>
+                          <a href="{{ url('/lokasi') }}" class="btn btn-sm btn-primary">Lihat Semua</a>
+                      </div>
+                  </form>
+              </div>
 
-            <div class="col-4">
-                <p class="fw-bold fs-5 text-center">Pilih Lokasi</p>
-                <img src="{{ asset ('page/assets/foto6.png') }}" alt="foto6" class="w-100 p-4 rounded" style="background-color: white;">
-                <div class="d-flex justify-content-start">
-                    <p class="fs-4 fw-bold" style="text-shadow: 2px 2px slategray">Depok</p>
-                    <div class="d-flex justify-content-center pt-2 ps-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event pt-1" viewBox="0 0 16 16">
-                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-                          </svg>
-                        <p class="fs-6 text-center">100+ Event</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-8">
-                <p class="fs-5 text-start fw-bold">Urutkan</p>
-                <div class="input-group mb-3 w-100">
-                    <select class="form-select rounded-3" id="inputGroupSelect01">
-                        <option selected>Populer</option>
-                        <option value="1">Weekly</option>
-                        <option value="2">Monthly</option>
-                        <option value="3">Yearly</option>
-                    </select>
-                </div>
                 <hr style="color: white; border: white 3px solid; background-color: white;">
-
-                <!-- Looping disini Start -->
+                @if(isset($message))
+                    <div class="alert alert-warning">
+                        {{ $message }}
+                    </div>
+                @else          
                 <!-- Card Lokasi Start -->
-
+                @foreach ($locations as $location)
                 <div class="row rounded pt-3 pb-3 m-lg-3" style="background-color: white;">
                     <div class="col-4">
-                        <img src="{{ asset('page/assets/foto7.png') }}" alt="foto7" class="w-100">
+                      <div class="image-wrapper">
+                        <img src="{{ $location->gambar }}" alt="foto7" class="w-100">
+                      </div>
                     </div>
                     <div class="col-8">
-                        <h1 class="fw-bold text-uppercase">Bandung</h1>
-                        <a href="#" class="btn form-control-sm text-light" style="background-color: #530986;">Pilih Lokasi</a>
+                        <h1 class="fw-bold text-uppercase">{{ $location->nama_lokasi }}</h1>
+                        <a href="{{ url('/ShowEvent', $location->id) }}" class="btn form-control-sm text-light" style="background-color: #530986;">Pilih Lokasi</a>
                         <div class="d-flex justify-content-start pt-2 ps-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event pt-1" viewBox="0 0 16 16">
                                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
                                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
                               </svg>
-                            <p class="fs-6 text-center">100+ Event</p>
+                            <p class="fs-6">100+ Event</p>
                         </div>
                     </div>
                 </div>
-
+                @endforeach
+                @endif
+                {{ $locations->links() }}
                 <!-- Card Lokasi End -->
                 <!-- Looping berakhir disini End -->
             </div>
@@ -158,29 +151,6 @@
 </div>
 <!-- Pilih Location Section End -->
 <br>
-<!-- Section Event Start -->
-    <section class="container pt-5 pb-5">
-        <h1 class="text-start fw-bold" style="color: #530986;">Events In Depok</h1>
-
-        <div class="row">
-
-            <!-- Mulai Looping dari bawah sini  -->
-            <!-- Card Start -->
-            <div class="col-3 p-4">
-                <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
-                    style="background-color: white; border-radius: 0.7rem;">
-                    <img src="{{ asset('page/assets/foto4.png') }}" alt="foto3" class="w-100">
-                    <p class="fs-6 fw-bold p-3 pb-1">Jalan Santai Bandung</p>
-                    <a href="#" class="btn text-light shadow-sm rounded form-control-sm" style="background-color: #530986;">Lihat
-                        Detail</a>
-                </div>
-            </div>
-            <!-- Card End -->
-            <!-- Looping Berakhir disini -->
-
-        </div>
-    </section>
-<!-- Section Event End -->
 
   <!-- Footer Section Start -->
   <div class="container-fluid" style="background-color: #D2DBF8; border-bottom: #530986 4rem solid;">

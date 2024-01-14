@@ -96,6 +96,7 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+            'reject_passwords' => false,
         ],
     ],
 
@@ -113,3 +114,4 @@ return [
     'password_timeout' => 10800,
 
 ];
+    

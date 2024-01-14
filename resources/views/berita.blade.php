@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto" style="font-weight: 700">
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Beranda</a>
+                    <a class="nav-link " href="{{url('/home')}}">Beranda</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="{{url('/berita')}}">Berita</a>

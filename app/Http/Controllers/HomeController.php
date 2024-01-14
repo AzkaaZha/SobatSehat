@@ -9,7 +9,6 @@ use App\Models\Location;
 class HomeController extends Controller
 {
 
-   
     public function index()
     {
         $events = Event::all();
@@ -17,9 +16,11 @@ class HomeController extends Controller
         return view('home', compact('events', 'locations'));
     }
 
-    public function show(Event $event)
+    public function show(string $id)
     {
-        return view('detailevent', compact('event'));
+        $event = Event::find($id);
+        return view('detailevent', [
+            'event' => $event
+        ]);
     }
-
 }

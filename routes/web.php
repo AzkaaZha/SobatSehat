@@ -25,34 +25,26 @@ use App\Http\Controllers\BeritaController;
 |
 */
 Route::get('/', [HomeController::class, 'index']);
-<<<<<<< HEAD
-=======
 
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/detailevent', [HomeController::class, 'show']);
+Route::get('/detailevent/{id}', [HomeController::class, 'show']);
 Route::get('/lokasi', [LokasiController::class, 'index']);
+Route::get('/ShowEvent/{location}', [LokasiController::class, 'showEvents'])->name('lokasi.showEvents');
 Route::get('/berita', [BeritaController::class, 'index']);
-
-
->>>>>>> 82d3a81c2c8437d5d37e98209058926b0bbae00d
-
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware (['guest'])->group(function(){
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-
+    
 });
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('UserAuth:kontributor,admin');
     Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/logout', [AuthController::class, 'logout']);
-
-
-
+    
     // Daftar Event
     Route::get('/event', [DaftarEventController::class, 'index']);
     Route::get('/event/CreateEvent', [DaftarEventController::class, 'create']);

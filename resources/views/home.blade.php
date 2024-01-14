@@ -13,7 +13,9 @@
   <!-- Custom Css  -->
   <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
 
-  <title>Sobat Sehat 1</title>
+  <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
+
+  <title>Sobat Sehat | Home</title>
 </head>
 
 <body>
@@ -71,9 +73,6 @@
                 </a>
             </li>
             @endguest
-
-
-
         </ul>
       </div>
     </div>
@@ -82,9 +81,12 @@
 
   <!-- Hero Section Start -->
   <section class="jumbotron d-flex flex-column" style="padding-left: 5rem;">
-    <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah</h1>
-    <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
+    <p class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem; font-size: 70px">Olahraga <br> Lebih Mudah</p>
+    <p class="lead fw-lighter fs-6 text-light fw-bold">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
       SobatSehat"</p>
+      <div class="col-lg-3">
+      <a href="{{url('/lokasi')}}" class="btn text-light fw-bold shadow-sm rounded" style="background-color: #530986; height:50px; padding-top:13px; width:350px">PILIH LOKASI SEKARANG</a>
+    </div>
   </section>
   <div class="d-block px-4 py-2 text-center" style="background-color: #530986; height: 3rem;">
   </div>
@@ -115,28 +117,26 @@
     <div class="container">
       <div class="d-flex justify-content-between pt-4">
         <h1 style="color: #530986;" class="fw-bold">Lokasi</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
+        <p style="color: #530986;" class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
       </div>
       <hr style="border: black 1px solid;">
       <div class="row">
         @foreach ($locations as $location)
-
-        <!-- Looping start here -->
-        <!-- Card Start -->
         <div class="col-4 p-3">
-          <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-            style="background-color: white; border-radius: 0.7rem; position: relative; text-align: center;">
-            <img src="{{ $location->gambar }}" alt="foto3" style="position: relative; z-index: 1;">
-            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
-              class="text-uppercase text-light fs-3">{{ $location->nama_lokasi }}</p>
-          </div>
-        </div>
-        <!-- Card End -->
-        <!-- Looping end here -->
+            <div class="item">
+                <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded">
+                    <div class="image-wrapper">
+                        <img src="{{ $location->gambar }}" alt="foto">
+                    </div>
+                    <div class="tittle">
+                      <p class="text-uppercase fs-3">{{ $location->nama_lokasi }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>  
         @endforeach
       </div>
     </div>
-
   </section>
   <!-- Category Section End -->
 
@@ -150,15 +150,17 @@
       <hr style="border: black 1px solid;">
       <div class="row">
         @foreach ($events as $event)
-            <!-- Card Start -->
-            <div class="col-4 p-3">
-            <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded"
-                style="background-color: white; border-radius: 0.7rem;">
-                <img src={{ $event->gambar }} alt="foto">
-                <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama }}</p>
-                <a href="{{ url('/detailevent') }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
+          <div class="col-4 p-3">
+              <div class="row justify-content-center p-3 pt-4 pb-4 shadow bg-body rounded">
+                <div class="image-wrapper">
+                  <img src={{ $event->gambar }} alt="foto">
+                </div>
+                <div class="tittle">
+                  <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama_event }}</p>
+                </div>
+                  <a href="{{ url('/detailevent', $event->id) }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
             </div>
-            </div>
+          </div>
         @endforeach
       </div>
     </div>
@@ -293,6 +295,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+  
 
 </body>
 

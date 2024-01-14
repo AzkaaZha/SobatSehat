@@ -11,7 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom Css  -->
-    <link rel="stylesheet" href="{{ asset('page/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
     <title>Detail Event</title>
 </head>
 
@@ -80,14 +80,15 @@
     <Section class="container pt-5">
         <div class="row">
             <div class="col-4">
-                <img src="assets/foto10.png" alt="foto10" class="w-100 rounded shadow">
+                <img src="{{ $event->gambar }}" alt="foto10" class="w-100 rounded shadow">
             </div>
             <div class="col-8 d-flex align-items-start justify-content-center flex-column ps-5">
-                <h1 class="mt-5 fw-bold" style="color: #530986;">Tour de Borobudur</h1>
-                <p class="fw-bold">Surakarta,Jawa Tengah</p>
-                <p class="fw-bold">Sabtu, 3 Agustus 2024</p>
+                <p style="font-weight: bolder; font-size:30px">{{ $event->nama_event }}</p>
+                <p class="fw-bold">{{ $event->location->nama_lokasi }}</p>
+                <p class="fw-bold">Sabtu, {{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</p>
                 <div class="rounded" style="height: 4px; width: 60px; background-color: #530986;"></div>
             </div>
+          
         </div>
     </Section>
     <!-- Hero Section End -->
@@ -96,19 +97,7 @@
     <section class="container pt-5">
         <p class="fs-4 fw-bold">Deskripsi</p>
         <br>
-        <p>Tour de Borobudur merupakan salah satu acara bersepeda yang selalu dinanti para penggemar sepeda. Mengusung
-            tema Unity in Diversity, tahun ini acara puncak akan berlangsung selama dua hari, yakni pada 3-4 Agustus.
-            <br><br>Hari pertama Tour de Borobudur XXIV 2024 akan menghadirkan rute yang menantang, dimulai dari
-            Surakarta dan melalui Plupuh, Sragen, Waduk Botok, Kebun Teh Kemuning, serta tanjakan ekstrem di Candi
-            Cetho. Setelah itu, para peserta akan melanjutkan perjalanan melalui Karangpandan dan Karanganyar, sebelum
-            akhirnya finish di Taman Pracima Tuin di Pura Mangkunegaran. Total jarak yang akan ditempuh peserta pada
-            hari pertama adalah sejauh 113,7 km. Rute yang menantang ini akan menguji keterampilan dan ketahanan
-            peserta, namun menyuguhkan pemandangan yang indah di sepanjang perjalanan. <br><br> Hari kedua Tour de
-            Borobudur XXIV 2024 akan menjadi hari yang menyenangkan dengan rute favorit para pecinta sepeda balap. Rute
-            ini akan melewati beberapa destinasi wisata yang indah dalam perjalanan sejauh 103 km. Para peserta akan
-            memulai perjalanan dari Surakarta, melintasi Klaten dan Sleman, sebelum akhirnya berakhir di Candi
-            Borobudur, Magelang. Pemandangan menakjubkan dan udara segar akan menemani sepanjang perjalanan, memberikan
-            pengalaman yang tak terlupakan bagi mereka yang berpartisipasi.</p>
+        <p>{{ $event->deskripsi }}</p>
 
     </section>
     <!-- Deskripsi Section End -->
@@ -124,7 +113,7 @@
             <div class="col-3 p-4">
                 <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
                     style="background-color: white; border-radius: 0.7rem;">
-                    <img src="assets/foto4.png" alt="foto3" class="w-100">
+                    <img src="{{ $event->gambar }}" alt="foto3" class="w-100">
                     <p class="fs-6 fw-bold p-3 pb-1">Jalan Santai Bandung</p>
                     <a href="#" class="btn text-light shadow-sm rounded form-control-sm"
                         style="background-color: #530986;">Lihat
@@ -154,7 +143,7 @@
               <footer class="row row-cols-5 py-5 border-top">
                 <div class="col">
                   <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                    <img src="assets/logoSS.png" alt="Logo" style="height: 2.8rem;">
+                    <img src="{{   asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
                   </a>
                   <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
                     web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>

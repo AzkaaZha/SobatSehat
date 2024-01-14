@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_event');
             $table->string('tanggal');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('gambar');
             $table->unsignedBigInteger('id_location');
             $table->foreign('id_location')->references('id')->on('location');
