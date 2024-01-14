@@ -22,7 +22,7 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+        <a class="navbar-brand" href="{{ url('/home')}}"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -119,7 +119,7 @@
                     <div class="alert alert-warning">
                         {{ $message }}
                     </div>
-                @else          
+                @else
                 <!-- Card Lokasi Start -->
                 @foreach ($locations as $location)
                 <div class="row rounded pt-3 pb-3 m-lg-3" style="background-color: white;">
