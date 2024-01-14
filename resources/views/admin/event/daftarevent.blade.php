@@ -37,8 +37,8 @@
                                     <tr class="">
                                         <td> {{ $loop->iteration }} </td>
                                         <td> {{ $event->nama_event }} </td>
-                                        <td> {{ $event->tanggal }} </td>
-                                        <td> {{ $event->lokasi_id }} </td>
+                                        <td> {{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
+                                        <td> {{ $event->location->nama_lokasi }} </td>
 
                                         <td>
                                             {{-- @if (Auth::user()->role == 'admin') --}}
