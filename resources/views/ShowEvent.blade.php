@@ -11,9 +11,11 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom Css  -->
-    <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('page/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('page/assets/css/animate.css') }}">
+    <link rel="shortcut icon" href="{{ asset('page/assets/img/logo.png') }}" type="image/x-icon">
 
-    <title>Event</title>
+    <title>Sobat Sehat | Event</title>
 </head>
 
 <body>
@@ -24,136 +26,120 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" style="font-weight: 700">
+              <ul class="navbar-nav ms-auto" style="font-weight: 700">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{url('/')}}">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('/berita')}}">Berita</a>
+              </li>
+                @guest
+                <li class="nav-item">
+                  <i></i>
+                  <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                    <span>Login / Daftar</span>
+                  </a>
+                  </li>
+                  @if (Route::has('register'))
+                      <li><a href="{{ url('/register') }}">Register</a></li>
+                  @endif
+                  @else
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
+                      </li>
+                  @endif
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{url('/home')}}">Beranda</a>
+                      <a class="nav-link active" href="{{url('/lokasi')}}">Event</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{url('/berita')}}">Berita</a>
-                </li>
-                  @guest
-                  <li class="nav-item">
-                    <i></i>
-                    <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg>
-                      <span>Login / Daftar</span>
-                    </a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @endif
-                    @else
-                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
-                        </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active " href="{{url('/events')}}">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/home') }}" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg> {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    @endguest
-                </ul>
-              </div>
+                      <a class="nav-link" href="{{ url('/logout') }}" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg> {{ Auth::user()->name }}
+                      </a>
+                  </li>
+                  @endguest
+              </ul>
+            </div>   
         </div>
     </nav>
     <!-- Navbar End -->
 
     <!-- Breadcumb Start -->
     <section class="container pt-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item text-muted"><a href="#" style="text-decoration: none;"
-                        class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
-                        </svg></a></li>
-                <li class="breadcrumb-item"><a href="#" style="text-decoration: none;" class="text-muted">Pages</a></li>
-                <li class="breadcrumb-item active text-muted" aria-current="page"><span class="fw-bold"> Daftar Acara
-                    </span></li>
-            </ol>
-        </nav>
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item text-muted">
+                  <a href="{{ url('/') }}" style="text-decoration: none;" class="text-muted">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                          <path
+                              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                      </svg>
+                  </a>
+              </li>
+              
+              @php
+                  $breadcrumbs = explode('/', Request::path());
+                  $urlSoFar = '/';
+              @endphp
+    
+              @foreach ($breadcrumbs as $breadcrumb)
+                  @if ($breadcrumb)
+                      @php
+                          $urlSoFar .= $breadcrumb . '/';
+                      @endphp
+                      <li class="breadcrumb-item">
+                          <a href="{{ $urlSoFar }}" style="font-size:15px; font-weight:bold; text-decoration: none" class="text-muted">
+                              {{ ucfirst($breadcrumb) }}
+                          </a>
+                      </li>
+                  @endif
+              @endforeach
+          </ol>
+      </nav>
+      <!-- Tautan Kembali ke Halaman Lokasi Start -->
+      <a href="{{ url('/lokasi') }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;"><< Kembali ke Lokasi</a>
+      <!-- Tautan Kembali ke Halaman Lokasi End -->
     </section>
     <!-- Breadcumb End -->
-
+    
     <!-- Event Section Start -->
-    <section class="container pt-0 pb-5 d-flex align-items-start">
-
-        {{-- <!-- Kategori Card Start -->
-        <div class="card me-5 position-sticky top-0 mt-md-5" style="width: 14rem; background-color: #D2DBF8;">
-            <div class="card-body">
-                <h5 class="card-title">Temukan Event</h5>
-                <div class="input-group mb-3">
-                    <select class="form-select rounded-3" id="inputGroupSelect01">
-                        <option selected>Kategori</option>
-                        <option value="1">Fun Run</option>
-                        <option value="2">Sepeda</option>
-                        <option value="3">Senam Aerobik</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select rounded-3" id="inputGroupSelect01">
-                        <option selected>Lokasi</option>
-                        <option value="1">Depok</option>
-                        <option value="2">Bandung</option>
-                        <option value="3">Bali</option>
-                    </select>
-                </div>
-
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-sm" placeholder="Tanggal">
-                </div>
-
-                <button type="submit" class="btn form-control text-light rounded-3"
-                    style="background-color: #530986;">cari</button>
-            </div>
-        </div>
-        <!-- Kategori Card End --> --}}
-
-        <!-- Card Event Start -->
-        <div class="row pt-5" style="width: 700px;">
-            <h1>Event di {{ $location->nama_lokasi }}</h1>
-            @foreach ($events as $event)
-            <!-- Card Start -->
-            <div class="col-4 p-3">
-                <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
-                    style="background-color: white; border-radius: 0.7rem;">
-                    <div class="image-wrapper">
+    <section class="container pt-5 pb-5 text-center">
+      <p class="mb-4" style="font-size:40px; font-weight:bold; color:#530986">Event di {{ $location->nama_lokasi }}</p>
+      <hr style="border-color: #530986; height:3px">
+  
+      <!-- Card Event Start -->
+      <div class="row justify-content-center align-items-center" style="max-width: 1500px;">
+        @foreach ($events as $event)
+        <!-- Card Start -->
+        <div class="col-4 p-3">
+            <div class="row p-2 pt-4 pb-4 shadow bg-body rounded"
+                style="background-color: white; border-radius: 0.7rem; margin-right: 15px;">
+                <div class="image-wrapper">
                     <img src="{{ $event->gambar }}" alt="foto3">
                 </div>
-                    <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama_event }}</p>
-                    <a href="#" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat
-                        Detail</a>
-                </div>
+                <p class="fs-6 fw-bold p-3 pb-1">{{ $event->nama_event }}</p>
+                <a href="{{ url('/detailevent', $event->id) }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
             </div>
-            @endforeach
-
-            <!-- Card End -->
-            <!-- Selesai Looping sampai Atas Ini  -->
         </div>
-        </div>
-        <!-- Card Event End -->
+        <!-- Card End -->
+        @endforeach
+        <!-- Selesai Looping sampai Atas Ini  -->
+      </div>
+      <!-- Card Event End -->
     </section>
     <!-- Event Section End -->
 
@@ -163,7 +149,7 @@
           <footer class="row row-cols-5 py-5 border-top">
             <div class="col">
               <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <img src="assets/logoSS.png" alt="Logo" style="height: 2.8rem;">
+                <img src="{{ asset ('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
               </a>
               <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
                 web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>
@@ -287,8 +273,12 @@
           </div>
         </div>
         <!-- Footer Section End -->
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        <script src="{{ asset('page/assets/js/isotope.min.js') }}"></script>
+        <script src="{{ asset('page/assets/js/owl-carousel.js') }}"></script>
+        <script src="{{ asset('page/assets/js/tabs.js') }}"></script>
+        <script src="{{ asset('page/assets/js/popup.js') }}"></script>
+        <script src="{{ asset('page/assets/js/custom.js') }}"></script>
+        <script pt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
           crossorigin="anonymous"></script>
 

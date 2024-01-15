@@ -17,7 +17,7 @@ class NewsSeeder extends Seeder
             'judul' => 'Jalan Santai Bandung',
             'tanggal' => '2023-12-29',
             'isi_berita' => 'djioaohadodgghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdaoho',
-            'gambar' => 'pameranbunga.jpg',
+            'gambar' => 'https://ibb.co/B4HXKgr',
         ]);
     }
 }

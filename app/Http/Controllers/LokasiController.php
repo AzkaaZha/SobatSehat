@@ -33,4 +33,18 @@ class LokasiController extends Controller
 
         return view('ShowEvent', compact('events', 'location'));
     }
+
+    public function showOtherEvents($currentEventId)
+    {
+        // Mendapatkan event saat ini
+        $currentEvent = Event::find($currentEventId);
+
+        // Mendapatkan event lainnya
+        $otherEvents = Event::where('id_location', $currentEvent->id_location)
+            ->where('id', '!=', $currentEventId)
+            ->limit(4)
+            ->get();
+
+        return view('detailevent', compact('currentEvent', 'otherEvents'));
+    }
 }

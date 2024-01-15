@@ -11,16 +11,23 @@ class HomeController extends Controller
 
     public function index()
     {
-        $events = Event::all();
-        $locations = Location::all();
+        $events = Event::take(3)->get();
+        $locations = Location::take(3)->get();
         return view('home', compact('events', 'locations'));
     }
 
     public function show(string $id)
     {
         $event = Event::find($id);
-        return view('detailevent', [
-            'event' => $event
-        ]);
-    }
+        // Mendapatkan lokasi event
+        $location = Location::find($event->id_location);
+        
+        // Mendapatkan event lainnya di lokasi yang sama
+        $otherEvents = Event::where('id_location', $location->id)
+            ->where('id', '!=', $event->id)
+            ->take(4) // Sesuaikan jumlah event lain yang ingin ditampilkan
+            ->get();
+
+        return view('detailevent', compact('event', 'location', 'otherEvents'));
+        }
 }

@@ -15041,8 +15041,8 @@ dl {
 .sidebar {
   min-height: calc(100vh - 70px);
   background: -webkit-gradient(linear, left top, left bottom, from(#e6e5f2), to(#4599cd));
-  background: linear-gradient(to bottom, #D2DBF8, #530986);
-  font-family: "Rubik", sans-serif;
+  background: linear-gradient(to bottom, #ffd392, #530986);
+  font-family: "Montserrat", sans-serif;
   padding: 0;
   width: 260px;
   z-index: 11;

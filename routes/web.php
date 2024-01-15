@@ -30,7 +30,9 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/detailevent/{id}', [HomeController::class, 'show']);
 Route::get('/lokasi', [LokasiController::class, 'index']);
 Route::get('/ShowEvent/{location}', [LokasiController::class, 'showEvents'])->name('lokasi.showEvents');
+Route::get('/ShowOtherEvents/{event}', [LokasiController::class, 'showOtherEvents'])->name('show.other.events');
 Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/detailberita/{id}', [BeritaController::class, 'show']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware (['guest'])->group(function(){

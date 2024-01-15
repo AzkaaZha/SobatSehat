@@ -20,6 +20,7 @@ class LocationSeeder extends Seeder
 
         Location::create([
             'nama_lokasi' => 'Jakarta',
+            'url_peta' => 'https://maps.app.goo.gl/dxwGdFkUVUxkkNm29',
             'gambar' => 'https://www.top4top.me/do.php?imgf=top4top_me365cae311a830.jpg',
         ]);
 

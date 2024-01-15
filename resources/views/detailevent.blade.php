@@ -11,8 +11,11 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom Css  -->
-    <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
-    <title>Detail Event</title>
+    <link rel="stylesheet" href="{{ asset('page/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('page/assets/css/animate.css') }}">
+    <link rel="shortcut icon" href="{{ asset('page/assets/img/logo.png') }}" type="image/x-icon">
+
+    <title>Sobat Sehat | Event</title>
 </head>
 
 <body>
@@ -20,62 +23,89 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="{{ asset ('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset ('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" style="font-weight: 700">
+              <ul class="navbar-nav ms-auto" style="font-weight: 700">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{url('/')}}">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('/berita')}}">Berita</a>
+              </li>
+                @guest
+                <li class="nav-item">
+                  <i></i>
+                  <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                    <span>Login / Daftar</span>
+                  </a>
+                  </li>
+                  @if (Route::has('register'))
+                      <li><a href="{{ url('/register') }}">Register</a></li>
+                  @endif
+                  @else
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
+                      </li>
+                  @endif
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                      <a class="nav-link active" href="{{url('/lokasi')}}">Event</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{url('/berita')}}">Berita</a>
-                </li>
-                  @guest
-                  <li class="nav-item">
-                    <i></i>
-                    <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg>
-                      <span>Login / Daftar</span>
-                    </a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @endif
-                    @else
-                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
-                        </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{url('/events')}}">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/home') }}" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg> {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    @endguest
-
-
-
-                </ul>
-              </div>
+                      <a class="nav-link" href="{{ url('/logout') }}" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg> {{ Auth::user()->name }}
+                      </a>
+                  </li>
+                  @endguest
+              </ul>
+            </div>   
+        </div>
     </nav>
     <!-- Navbar End -->
-
+    <section class="container pt-4">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item text-muted">
+                  <a href="{{ url('/') }}" style="text-decoration: none;" class="text-muted">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                          <path
+                              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                      </svg>
+                  </a>
+              </li>
+              
+              @php
+                  $breadcrumbs = explode('/', Request::path());
+                  $urlSoFar = '/';
+              @endphp
+    
+              @foreach ($breadcrumbs as $breadcrumb)
+                  @if ($breadcrumb)
+                      @php
+                          $urlSoFar .= $breadcrumb . '/';
+                      @endphp
+                      <li class="breadcrumb-item">
+                          <a href="{{ $urlSoFar }}" style="font-size:15px; font-weight:bold; text-decoration: none" class="text-muted">
+                              {{ ucfirst($breadcrumb) }}
+                          </a>
+                      </li>
+                  @endif
+              @endforeach
+          </ol>
+      </nav>
+    </section>
     <!-- Hero Section Start -->
     <Section class="container pt-5">
         <div class="row">
@@ -87,8 +117,7 @@
                 <p class="fw-bold">{{ $event->location->nama_lokasi }}</p>
                 <p class="fw-bold">Sabtu, {{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</p>
                 <div class="rounded" style="height: 4px; width: 60px; background-color: #530986;"></div>
-            </div>
-          
+            </div> 
         </div>
     </Section>
     <!-- Hero Section End -->
@@ -97,44 +126,32 @@
     <section class="container pt-5">
         <p class="fs-4 fw-bold">Deskripsi</p>
         <br>
-        <p>{{ $event->deskripsi }}</p>
+        <div class="deskripsi">
+          <p>{{ $event->deskripsi }}</p>
+        </div>
 
     </section>
     <!-- Deskripsi Section End -->
 
     <!-- Section Event Start -->
     <section class="container pt-5 pb-5">
-        <h1 class="text-start fs-4 fw-bold" style="color: black;">Event Lainnya</h1>
-
-        <div class="row">
-
-            <!-- Mulai Looping dari bawah sini  -->
-            <!-- Card Start -->
-            <div class="col-3 p-4">
-                <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
-                    style="background-color: white; border-radius: 0.7rem;">
-                    <img src="{{ $event->gambar }}" alt="foto3" class="w-100">
-                    <p class="fs-6 fw-bold p-3 pb-1">Jalan Santai Bandung</p>
-                    <a href="#" class="btn text-light shadow-sm rounded form-control-sm"
-                        style="background-color: #530986;">Lihat
-                        Detail</a>
-                </div>
-            </div>
-            <!-- Card End -->
-            <!-- Looping Berakhir disini -->
-  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </button>
-</div>
-
-
-        </div>
-    </section>
+      <h1 class="text-start fs-4 fw-bold" style="color: black;">Event Lainnya di {{ $location->nama_lokasi }}</h1>
+      <div class="row">
+          @foreach ($otherEvents as $otherEvent)
+          <!-- Card Start -->
+          <div class="col-3 p-4">
+              <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
+                  style="background-color: white; border-radius: 0.7rem;">
+                  <img src="{{ $otherEvent->gambar }}" alt="foto3" class="w-100">
+                  <p class="fs-6 fw-bold p-3 pb-1">{{ $otherEvent->nama_event }}</p>
+                  <a href="{{ url('/detailevent', $event->id) }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
+              </div>
+          </div>
+          <!-- Card End -->
+          @endforeach
+          <!-- Looping Berakhir disini -->
+      </div>
+  </section>
     <!-- Section Event End -->
 
         <!-- Footer Section Start -->

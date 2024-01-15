@@ -10,10 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Custom Css  -->
-    <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
+      <!-- Custom Css  -->
+      <link rel="stylesheet" href="{{ asset('page/assets/css/style.css') }}">
+      <link rel="stylesheet" href="{{ asset('page/assets/css/animate.css') }}">
+      <link rel="shortcut icon" href="{{ asset('page/assets/img/logo.png') }}" type="image/x-icon">
 
-    <title>Berita Sobat Sehat</title>
+      <title>Sobat Sehat | Berita</title>
 </head>
 
 <body>
@@ -22,59 +24,53 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" style="font-weight: 700">
+              <ul class="navbar-nav ms-auto" style="font-weight: 700">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{url('/')}}">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{url('/berita')}}">Berita</a>
+              </li>
+                @guest
+                <li class="nav-item">
+                  <i></i>
+                  <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                    <span>Login / Daftar</span>
+                  </a>
+                  </li>
+                  @if (Route::has('register'))
+                      <li><a href="{{ url('/register') }}">Register</a></li>
+                  @endif
+                  @else
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
+                      </li>
+                  @endif
                   <li class="nav-item">
-                    <a class="nav-link " href="{{url('/home')}}">Beranda</a>
+                      <a class="nav-link" href="{{url('/lokasi')}}">Event</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="{{url('/berita')}}">Berita</a>
-                </li>
-                  @guest
-                  <li class="nav-item">
-                    <i></i>
-                    <a href="{{url('/login')}}" class="btn text-light" style="background-color: #530986;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg>
-                      <span>Login / Daftar</span>
-                    </a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @endif
-                    @else
-                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'kontributor')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/dashboard')}}">Dashboard</a>
-                        </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{url('/events')}}">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/home') }}" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      </svg> {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    @endguest
-
-
-
-                </ul>
-              </div>
+                      <a class="nav-link" href="{{ url('/logout') }}" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg> {{ Auth::user()->name }}
+                      </a>
+                  </li>
+                  @endguest
+              </ul>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -83,15 +79,33 @@
     <section class="container pt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item text-muted"><a href="#" style="text-decoration: none;"
-                        class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <li class="breadcrumb-item text-muted">
+                    <a href="{{ url('/') }}" style="text-decoration: none;" class="text-muted">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-house-door-fill" viewBox="0 0 16 16">
                             <path
                                 d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
-                        </svg></a></li>
-                <li class="breadcrumb-item"><a href="#" style="text-decoration: none;" class="text-muted">Pages</a></li>
-                <li class="breadcrumb-item active text-muted" aria-current="page"><span class="fw-bold"> Halaman Berita
-                    </span></li>
+                        </svg>
+                    </a>
+                </li>
+                
+                @php
+                    $breadcrumbs = explode('/', Request::path());
+                    $urlSoFar = '/';
+                @endphp
+    
+                @foreach ($breadcrumbs as $breadcrumb)
+                    @if ($breadcrumb)
+                        @php
+                            $urlSoFar .= $breadcrumb . '/';
+                        @endphp
+                        <li class="breadcrumb-item">
+                            <a href="{{ $urlSoFar }}" style="font-size:15px; font-weight:bold; text-decoration: none" class="text-muted">
+                                {{ ucfirst($breadcrumb) }}
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ol>
         </nav>
     </section>
@@ -100,33 +114,33 @@
 
     <!-- Hero Section Start -->
     <section class="jumbotron2 d-flex flex-column pt-5 pb-5" style="padding-left: 5rem;">
-        <h1 class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem;">Olahraga <br> Lebih Mudah
-        </h1>
-        <p class="lead fw-lighter fs-6 text-light">"Cari, Temukan, Dan Rasakan Serunya Kegiatan Olahraga <br> Bersama
-            SobatSehat"</p>
-
+        <p class="display-4 fw-bold text-light text-uppercase" style="padding-top: 10rem; font-size:80px">BERITA
+        </p>
+        <p class="text-light" style="font-size: 20px;">Temukan berita terbaru seputar kesehatan dan gaya hidup sehat
+            di sini.</p>
     </section>
     <!-- Hero Section End -->
 
     <!-- Berita Section Start -->
     <section class="container pt-5 pb-5">
 
-        <!-- Looping mulai dari sini -->
+        @foreach ($news as $news)
         <!-- Card Berita Here Start -->
         <div class="row">
 
             <div class="col-4">
-                <img src="{{ asset('page/assets/foto9.png') }}" alt="foto9" class="w-100">
+                <img src="{{ $news->gambar }}" alt="foto9" class="w-100">
             </div>
 
             <div class="col-8">
-                <h1 class="fw-bold ">Manfaat Jalan Santai Bersama Keluarga</h1>
-                <p>Sebuah studi terbaru dalam bidang kesehatan dan ilmu perilaku manusia menyoroti manfaat luar biasa dari kegiatan sederhana seperti jalan santai bersama keluarga. Penelitian ini menunjukkan bahwa interaksi keluarga yang positif dan aktivitas fisik ringan dapat memberikan dampak signifikan pada kesejahteraan secara keseluruhan. Menurut Dr. Maria Rodriguez, ahli kesehatan dan peneliti utama dalam studi ini, "Jalan santai bersama keluarga bukan hanya memperkuat ikatan emosional, tetapi juga membawa dampak positif pada aspek kesehatan fisik dan mental."</p>
+                <h1 class="fw-bold ">{{ $news->judul }}</h1>
+                <p>{{ $news->isi_berita }}</p>
+                <a href="{{ url('/detailberita', $news->id) }}" class="btn btn-sm text-light" style="background-color: #530986; padding: 10px 20px; font-size: 16px;" >Baca Selengkapnya</a>
             </div>
 
         </div>
         <!-- Card Berita End Here -->
-        <!-- Looping Berakhir disini -->
+        @endforeach
 
     </section>
     <!-- Berita Section End -->
@@ -137,7 +151,7 @@
       <footer class="row row-cols-5 py-5 border-top">
         <div class="col">
           <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
+            <img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
           </a>
           <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
             web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>

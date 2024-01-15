@@ -11,9 +11,9 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!-- Custom Css  -->
-  <link rel="stylesheet" href="{{ asset('page/assets/style.css') }}">
-
-  <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
+  <link rel="stylesheet" href="{{ asset('page/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('page/assets/css/animate.css') }}">
+  <link rel="shortcut icon" href="{{ asset('page/assets/img/logo.png') }}" type="image/x-icon">
 
   <title>Sobat Sehat | Home</title>
 </head>
@@ -25,7 +25,7 @@
   </div>
   <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+      <a class="navbar-brand" href="#"><img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,13 +59,10 @@
                 </li>
             @endif
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/lokasi')}}">Lokasi</a>
+                <a class="nav-link" href="{{url('/lokasi')}}">Event</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{url('/events')}}">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/home') }}" >
+                <a class="nav-link" href="{{ url('/logout') }}" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                 class="bi bi-person-fill pe-1" viewBox="0 0 16 16">
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
@@ -97,7 +94,7 @@
     <div class="row">
 
             <div class="col-5">
-                <img src="{{ asset('page/assets/foto2.png') }}" alt="foto2" class="card-img">
+                <img src="{{ asset('page/assets/img/foto2.png') }}" alt="foto2" class="card-img">
             </div>
             <div class="col-7 d-flex align-items-start flex-column">
                 <h1 class="fw-bold" style="color: #530986;">Apa Itu Sobat Sehat ?</h1>
@@ -105,7 +102,6 @@
                 olahraga rekreasi dan membantu, SobatSehat menjadi aplikasi yang lebih komprehensif dan relevan bagi
                 pengguna/user yang sedang mencari informasi terkait seputar acara olahraga rekreasi, serta mampu meningkatkan
                 aktivitas dalam pencarian informasi yang lebih mudah untuk dijangkau dan dicari.</p>
-                <a href="#" class="fst-italic ms-auto" style="color: #530986;">Baca Selengkapnya</a>
             </div>
 
     </div>
@@ -117,7 +113,7 @@
     <div class="container">
       <div class="d-flex justify-content-between pt-4">
         <h1 style="color: #530986;" class="fw-bold">Lokasi</h1>
-        <p style="color: #530986;" class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
+        <a href="{{url('/lokasi')}}" style="color: #530986;" class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></a>
       </div>
       <hr style="border: black 1px solid;">
       <div class="row">
@@ -131,6 +127,7 @@
                     <div class="tittle">
                       <p class="text-uppercase fs-3">{{ $location->nama_lokasi }}</p>
                     </div>
+                    <a href="{{ url('/ShowEvent', $location->id) }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Pilih Lokasi</a>
                 </div>
             </div>
         </div>  
@@ -145,7 +142,6 @@
     <div class="container">
       <div class="d-flex justify-content-between pt-4">
         <h1 style="color: #530986;" class="fw-bold">Event</h1>
-        <p class="fs-5 pt-2 fw-bold"> Tampilkan Semua ></p>
       </div>
       <hr style="border: black 1px solid;">
       <div class="row">
@@ -173,7 +169,7 @@
       <footer class="row row-cols-5 py-5 border-top" >
         <div class="col">
           <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <img src="{{ asset('page/assets/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
+            <img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 2.8rem;">
           </a>
           <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan pengembangan situs
             web. Bergabunglah dengan kami untuk pengalaman sehat dan aktif! 💪🌐 #SobatSehatStudio</p>
@@ -291,7 +287,11 @@
     </div>
   </div>
   <!-- Footer Section End -->
-
+  <script src="{{ asset('page/assets/js/isotope.min.js') }}"></script>
+  <script src="{{ asset('page/assets/js/owl-carousel.js') }}"></script>
+  <script src="{{ asset('page/assets/js/tabs.js') }}"></script>
+  <script src="{{ asset('page/assets/js/popup.js') }}"></script>
+  <script src="{{ asset('page/assets/js/custom.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
