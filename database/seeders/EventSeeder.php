@@ -55,7 +55,7 @@ class EventSeeder extends Seeder
             'deskripsi' => 'Sambut keceriaan dan semangat kebugaran bersama di Jakarta Fun Run!
 
             Event ini merupakan lari santai yang mengundang masyarakat Jakarta untuk bergabung dalam suatu pengalaman lari yang penuh kegembiraan. Dengan rute yang melewati pemandangan ikonik dan landmark kota Jakarta, peserta dapat menikmati perjalanan sehat sambil merasakan energi positif dari sesama peserta dan pendukung di sepanjang jalan. Dengan suasana yang penuh semangat dan musik yang mengiringi, Jakarta Fun Run tidak hanya menjadi kesempatan untuk meningkatkan kebugaran fisik, tetapi juga merayakan kebersamaan dalam komunitas yang peduli akan kesehatan dan kebahagiaan bersama. Ayo, ikut serta dalam keseruan Jakarta Fun Run dan buatlah kenangan positif sepanjang perjalanan lari ini!',
-            'gambar' => 'https://www.top4top.me/do.php?imgf=top4top_me6bd63f4242370.jpg',
+            'gambar' => 'https://1.bp.blogspot.com/-1kVsbU-i-cg/Xi0ebkMLIxI/AAAAAAAADiU/0JvOIu4syDYM5Zr35nX-WwWEIrGGrVSggCLcBGAsYHQ/s1600/IMG-20200126-WA0034.jpg',
             'id_location' => 2,
         ]);
 
@@ -68,11 +68,37 @@ class EventSeeder extends Seeder
         ]);
 
         Event::create([
-            'nama_event' => 'Jakarta Sports Carnival',
+            'nama_event' => 'Jakarta Night Urban Run',
             'tanggal' => '2024-08-17',
-            'deskripsi' => 'event olahraga yang menghadirkan berbagai cabang olahraga dan kegiatan menarik lainnya untuk masyarakat Jakarta.',
-            'gambar' => 'https://g.top4top.io/p_2931z8s162.jpeg',
+            'deskripsi' => 'Lomba lari malam yang menampilkan rute yang terang benderang dan pemandangan malam kota Jakarta. Dengan pencahayaan yang kreatif dan musik yang memotivasi, peserta dapat merasakan semangat kebersamaan dalam event lari yang unik dan menyenangkan.',
+            'gambar' => 'https://media.suara.com/pictures/970x544/2019/10/12/26232-komunitas-gbk-night-run.jpg',
             'id_location' => 2,
+        ]);
+
+        Event::create([
+            'nama_event' => 'Street Basketball Showdown',
+            'tanggal' => '2024-07-21',
+            'deskripsi' => 'Turnamen bola basket jalanan yang menampilkan bakat dan keterampilan para pemain basket lokal. Event ini tidak hanya memberikan hiburan bagi penggemar bola basket, tetapi juga menciptakan platform bagi pemuda-pemudi Jakarta untuk menunjukkan bakat mereka dalam olahraga ini.',
+            'gambar' => 'https://www.fiba.basketball/images.fiba.com/Graphic/3/F/3/4/Qw_Dn2ykDEOnW9SUTN3TTA.jpg?v=20220710051721976',
+            'id_location' => 2,
+        ]);
+
+        Event::create([
+            'nama_event' => 'City Bike Tour',
+            'tanggal' => '2024-10-12',
+            'deskripsi' => 'Tur sepeda kota yang mengajak peserta untuk menjelajahi Jakarta dengan mengunjungi tempat-tempat bersejarah, taman-taman, dan jalan-jalan indah. Dengan rute yang dirancang untuk semua tingkatan pesepeda, acara ini mempromosikan kebersihan lingkungan, kebugaran, dan kesenangan dalam bersepeda di tengah kehidupan perkotaan. Peserta dapat menikmati perjalanan santai sambil menghargai pesona Jakarta.',
+            'gambar' => 'https://res.klook.com/image/upload/c_fill,w_750,h_560/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/wcf8memxqow5xofxdlsy.jpg',
+            'id_location' => 2,
+        ]);
+
+        Event::create([
+            'nama_event' => 'Yogyakarta Fun Run',
+            'tanggal' => '2024-06-19',
+            'deskripsi' => 'Sambut keceriaan dan semangat kebugaran bersama di Yogyakarta Fun Run!
+
+            Event ini merupakan lari santai yang mengundang masyarakat Yogyakarta untuk bergabung dalam suatu pengalaman lari yang penuh kegembiraan. Dengan rute yang melewati pemandangan ikonik dan landmark kota Yogyakarta, peserta dapat menikmati perjalanan sehat sambil merasakan energi positif dari sesama peserta dan pendukung di sepanjang jalan. Dengan suasana yang penuh semangat dan musik yang mengiringi, Yogyakarta Fun Run tidak hanya menjadi kesempatan untuk meningkatkan kebugaran fisik, tetapi juga merayakan kebersamaan dalam komunitas yang peduli akan kesehatan dan kebahagiaan bersama. Ayo, ikut serta dalam keseruan Yogyakarta Fun Run dan buatlah kenangan positif sepanjang perjalanan lari ini!',
+            'gambar' => 'https://www.travelxism.com/destinasi-image/detail/1701175815897-Jogja-Cultural-Wellness-Festival.jpg',
+            'id_location' => 3,
         ]);
 
         Event::create([
