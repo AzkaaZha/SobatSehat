@@ -126,10 +126,10 @@
 
         @foreach ($news as $news)
         <!-- Card Berita Here Start -->
-        <div class="row">
+        <div class="row" style="padding: 10px">
 
             <div class="col-4">
-                <img src="{{ $news->gambar }}" alt="foto9" class="w-100">
+                <img src="{{ $news->gambar }}" alt="foto9" class="w-100" style="padding: 10px 10px">
             </div>
 
             <div class="col-8">

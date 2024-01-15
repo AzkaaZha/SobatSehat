@@ -114,10 +114,10 @@
     <div class="container pb-5 pt-3">
         <h1>{{ $news->judul }}</h1>
         <p class="text-muted">{{ $news->tanggal }}</p>
-        <div>
-            <img src="{{ $news->gambar }}" alt="" style="width: 100%; height: 267px;">
+        <div class="image-wrapper">
+            <img src="{{ $news->gambar }}" alt="" style="width: 50%; height:80%">
         </div>
-        <p class="pt-4">{{ $news->isi_berita }}</p>
+        <p class="pt-4" style="margin-right: 100px">{{ $news->isi_berita }}</p>
         </p>
     </div>
     <!-- Section Berita End -->
@@ -128,7 +128,7 @@
             <footer class="row row-cols-5 py-5 border-top">
                 <div class="col">
                     <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                        <img src="assets/logoSS.png" alt="Logo" style="height: 2.8rem;">
+                        <img src="{{ asset ('page/assets/img/logoSS.png')}}" alt="Logo" style="height: 2.8rem;">
                     </a>
                     <p class="fs-6 text-muted"> Berlokasi di Depok, Indonesia, kami fokus pada desain UI/UX dan
                         pengembangan situs
