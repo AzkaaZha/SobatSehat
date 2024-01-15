@@ -24,7 +24,7 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #D2DBF8;">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/home')}}"><img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
+        <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('page/assets/img/logoSS.png') }}" alt="Logo" style="height: 3.6rem;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -172,7 +172,7 @@
                                   <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
                                   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
                               </svg>
-                              <p class="fs-6 mb-0">100+ Event di {{ $location->nama_lokasi }}</p>
+                              <p class="fs-6 mb-0">{{ $location->event->count()}} Event di {{ $location->nama_lokasi }}</p>
                           </div>
 
                           <!-- Tambahkan tautan Google Maps -->

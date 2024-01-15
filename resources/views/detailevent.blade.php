@@ -142,7 +142,9 @@
           <div class="col-3 p-4">
               <div class="row p-3 pt-4 pb-4 shadow bg-body rounded"
                   style="background-color: white; border-radius: 0.7rem;">
-                  <img src="{{ $otherEvent->gambar }}" alt="foto3" class="w-100">
+                  <div class="image-wrapper">
+                    <img src="{{ $otherEvent->gambar }}" alt="foto3" class="w-100">
+                  </div>
                   <p class="fs-6 fw-bold p-3 pb-1">{{ $otherEvent->nama_event }}</p>
                   <a href="{{ url('/detailevent', $event->id) }}" class="btn text-light shadow-sm rounded" style="background-color: #530986;">Lihat Detail</a>
               </div>

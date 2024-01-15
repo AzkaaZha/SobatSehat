@@ -22,7 +22,7 @@
     <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-          <a class="sidebar-brand brand-logo" href="{{url('/dashboard')}}"><img src="{{ asset('admin/assets/images/logo2.png') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo"  href="{{url('/dashboard')}}"><img src="{{ asset('admin/assets/images/logo2.png') }}" alt="logo" /></a>
           <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="{{url('/dashboard')}}"><img src="{{ asset('admin/assets/images/logo.png') }}" alt="logo" /></a>
         </div>
           <ul class="nav">
@@ -57,13 +57,6 @@
                 <span class="menu-title">Daftar Lokasi</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('/user')}}">
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                <span class="menu-title">Daftar User</span>
-              </a>
-            </li>
-            
             <li class="nav-item">
               <a class="nav-link" href="{{url('/news')}}">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
